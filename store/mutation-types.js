@@ -1,0 +1,4 @@
+export const LIKE_POST = 'LIKE_POST';
+export const DISLIKE_POST = 'DISLIKE_POST';
+export const DARK_THEME_ENABLE = 'DARK_THEME_ENABLE';
+export const DARK_THEME_DISABLE = 'DARK_THEME_DISABLE';
