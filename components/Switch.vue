@@ -63,6 +63,7 @@ export default {
     width: 100%;
     height: 100%;
     fill: #E4E4E4;
+    transition: opacity 0.2s ease-in-out;
   }
 
   &:hover {

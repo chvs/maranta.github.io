@@ -33,6 +33,13 @@ export default {
         [this.$style.root_dark]: this.isDark,
       };
     },
+
+    socialsClass() {
+      return {
+        [this.$style.socials]: true,
+        [this.$style.socials_dark]: this.isDark,
+      };
+    },
   },
 };
 </script>
@@ -46,17 +53,7 @@ export default {
     <div :class="$style.descr">
       <div :class="$style.heading">
         <h1 :class="$style.title">maranta</h1>
-        <ul :class="$style.socials">
-          <li>
-            <a
-              :class="$style.link"
-              href="https://www.instagram.com/ave_maranta/"
-              target="_blank"
-              rel=”noopener”
-            >
-              <Inst />
-            </a>
-          </li>
+        <ul :class="socialsClass">
           <li>
             <a
               :class="$style.link"
@@ -65,6 +62,16 @@ export default {
               rel=”noopener”
             >
               <Tg />
+            </a>
+          </li>
+          <li>
+            <a
+              :class="$style.link"
+              href="https://www.instagram.com/ave_maranta/"
+              target="_blank"
+              rel=”noopener”
+            >
+              <Inst />
             </a>
           </li>
           <li>
@@ -138,12 +145,27 @@ export default {
 
 .socials {
   list-style-type: none;
-  padding: 2px 0 0;
+  padding: 3px 0 0;
   margin: 0;
   display: flex;
+  align-items: center;
+
+  &_dark {
+    .link {
+      svg {
+        fill: #7C7C7C;
+      }
+      &:hover {
+        svg {
+          fill: #E4E4E4;
+        }
+      }
+    }
+  }
 
   li {
-    margin-right: 20px;
+    margin-right: 16px;
+
     &:last-child {
       margin-right: 0;
     }
@@ -152,11 +174,16 @@ export default {
 
 .link {
   height: 16px;
+  width: 16px;
   display: block;
+
   svg {
     fill: #E4E4E4;
     width: 100%;
+    height: 100%;
+    transition: fill 0.2s ease-in-out;
   }
+
   &:hover {
     svg {
       fill: #7C7C7C;
