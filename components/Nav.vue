@@ -20,7 +20,8 @@ export default {
 
 <template>
   <div :class="rootClass">
-    # demoreel #illustration #2d #3d #animation #music #ui/ux #gif #photo #video #meme #text #all
+    # demoreel #illustration #2d #3d #animation #music #ui/ux #gif #photo #video #meme #text
+    <span :class="$style.active">#all</span>
   </div>
 </template>
 
@@ -33,5 +34,9 @@ export default {
   &_dark {
     border-bottom-color: #7C7C7C;
   }
+}
+
+.active {
+  color: #FF6F6F;
 }
 </style>

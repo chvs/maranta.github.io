@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div :class="$style.root">
-    <ul :class="$style.list">
+    <ul v-if="data.tags.length" :class="$style.list">
       <li
         v-for="(item, index) in data.tags"
         :key="index"
@@ -48,7 +48,7 @@ export default {
     </div>
 
     <div v-if="data.text" :class="$style.text">
-      {{ data.text }}
+      <div v-html="data.text"></div>
     </div>
   </div>
 </template>
@@ -93,7 +93,8 @@ export default {
   height: 100%;
 }
 
-.text {
-  margin: 25px 0 0;
-}
+// @todo переделать отступы
+// .text {
+//   margin: 25px 0 0;
+// }
 </style>

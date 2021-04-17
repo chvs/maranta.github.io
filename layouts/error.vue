@@ -1,4 +1,5 @@
 <script>
+import { mapGetters } from 'vuex';
 import Icon from '~/static/svg/switch.svg';
 import Logo from '~/static/svg/logo_404.svg';
 import SwitchBtn from '~/components/Switch.vue';
@@ -26,6 +27,12 @@ export default {
   data() {
     return {
     };
+  },
+
+  computed: {
+    ...mapGetters([
+      'themeIsDark',
+    ]),
   },
 
   methods: {
@@ -59,9 +66,9 @@ export default {
       # 404
     </div>
     <div :class="$style.content">
-      <div :class="$style.wrap">
-        <img :class="$style.image" src="/img/404.gif" alt="">
-      </div>
+      <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
+      <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
+
       <nuxt-link
         to="/"
         :class="$style.link"
@@ -111,7 +118,7 @@ body {
 
 .image {
   display: block;
-  width: 227px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -123,10 +130,5 @@ body {
   &:hover {
     text-decoration: none;
   }
-}
-
-.wrap {
-  background-color: #fff;
-  padding: 20px 0;
 }
 </style>

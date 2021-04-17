@@ -13,6 +13,14 @@ export default {
     ...mapGetters([
       'themeIsDark',
     ]),
+
+    btnClass() {
+      return {
+        [this.$style.btn]: true,
+        [this.$style.btn_dark]: this.themeIsDark,
+      };
+    },
+
   },
 
   methods: {
@@ -30,7 +38,7 @@ export default {
 <template>
   <div :class="$style.root">
     <button
-      :class="$style.btn"
+      :class="btnClass"
       @click="clickHandler()"
     >
       <Icon v-if="!themeIsDark" />
@@ -63,12 +71,23 @@ export default {
     width: 100%;
     height: 100%;
     fill: #E4E4E4;
-    transition: opacity 0.2s ease-in-out;
+    transition: fill 0.2s ease-in-out;
   }
 
   &:hover {
     svg {
-      opacity: 0.5;
+      fill: #B6B6B6;
+    }
+  }
+
+  &_dark {
+    svg {
+      fill: #7C7C7C;
+    }
+    &:hover {
+      svg {
+        fill: #E4E4E4;
+      }
     }
   }
 }
