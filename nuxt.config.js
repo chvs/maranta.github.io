@@ -34,6 +34,13 @@ export default {
       { rel: 'mask-icon', href: '/favicon/safari-pinned-tab.svg', color: '#000000' },
     ],
   },
+
+  target: 'static',
+
+  router: {
+    base: '/maranta.github.io/'
+  },
+
   /*
   ** Plugins
   */
