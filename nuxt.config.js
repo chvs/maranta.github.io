@@ -37,16 +37,6 @@ export default {
 
   target: 'static',
 
-  // router: {
-  //   base: '/maranta.github.io/'
-  // },
-
-  // ssr: false,
-
-  // static: {
-  //   prefix: false
-  // },
-
   css: [
     '~/assets/stylus/index.styl',
   ],
