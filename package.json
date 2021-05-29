@@ -6,7 +6,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env PORT=7090 nuxt",
+    "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "deploy": "push-dir --dir=dist --branch=master --cleanup",

@@ -37,37 +37,20 @@ export default {
 
   target: 'static',
 
-  router: {
-    base: '/maranta.github.io/'
-  },
+  // router: {
+  //   base: '/maranta.github.io/'
+  // },
 
-  static: {
-    prefix: false
-  },
+  // ssr: false,
 
-  /*
-  ** Plugins
-  */
-  plugins: [
-  ],
-  /*
-  ** Disable display progress bar between routes
-  */
-  loading: false,
-  /*
-  ** Enable SPA mode
-  */
-  spa: false,
-  /*
-  ** Modules
-  */
+  // static: {
+  //   prefix: false
+  // },
 
   css: [
     '~/assets/stylus/index.styl',
   ],
 
-  modules: [
-  ],
   /*
   ** Build
   */
