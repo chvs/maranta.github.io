@@ -181,7 +181,6 @@ export default {
     fill: #E4E4E4;
     width: 100%;
     height: 100%;
-    transition: fill 0.2s ease-in-out;
   }
 
   &:hover {

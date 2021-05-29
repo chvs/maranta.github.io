@@ -17,30 +17,10 @@ export default {
     SwitchBtn,
   },
 
-  props: {
-    error: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
-
-  data() {
-    return {
-    };
-  },
-
   computed: {
     ...mapGetters([
       'themeIsDark',
     ]),
-  },
-
-  methods: {
-    navigateHome() {
-      this.$router.push({
-        name: 'index',
-      });
-    },
   },
 };
 </script>
@@ -48,9 +28,9 @@ export default {
 <template>
   <div>
     <div :class="$style.header">
-      <div :class="$style.logo">
+      <nuxt-link to="/" :class="$style.logo">
         <Logo />
-      </div>
+      </nuxt-link>
       <div :class="$style.descr">
         <div :class="$style.heading">
           <h1 :class="$style.title">maranta</h1>

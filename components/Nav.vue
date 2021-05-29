@@ -20,7 +20,7 @@ export default {
 
 <template>
   <div :class="rootClass">
-    # demoreel #illustration #2d #3d #animation #music #ui/ux #gif #photo #video #meme #text
+    #demoreel #illustration #2d #3d #animation #music #ui/ux #gif #photo #video #text
     <span :class="$style.active">#all</span>
   </div>
 </template>
