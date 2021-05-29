@@ -41,6 +41,10 @@ export default {
     base: '/maranta.github.io/'
   },
 
+  static: {
+    prefix: false
+  },
+
   /*
   ** Plugins
   */

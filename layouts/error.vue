@@ -66,8 +66,8 @@ export default {
       # 404
     </div>
     <div :class="$style.content">
-      <img v-if="!themeIsDark" :class="$style.image" src="/maranta.github.io/img/404.gif" alt="">
-      <img v-else :class="$style.image" src="/maranta.github.io/img/404_dark.gif" alt="">
+      <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
+      <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
 
       <nuxt-link
         to="/"

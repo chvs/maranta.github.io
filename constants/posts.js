@@ -10,7 +10,7 @@ const createPosts = [
   },
   {
     tags: [],
-    image: '/maranta.github.io/img/mrnt_1.png',
+    image: '/img/mrnt_1.png',
     video: '',
     music: '',
     text: 'Ministry of Magic',
