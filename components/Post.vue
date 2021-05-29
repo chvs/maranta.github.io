@@ -77,6 +77,7 @@ export default {
 .image {
   width: 100%;
   display: block;
+  margin: 11px 0 15px;
 }
 
 .videoWrap {

@@ -8,15 +8,15 @@ const createPosts = [
     date: '',
     id: '1'
   },
-  // {
-  //   tags: ['music'],
-  //   image: '',
-  //   video: 'https://www.youtube.com/embed/lWA2pjMjpBs',
-  //   music: '',
-  //   text: '',
-  //   date: '',
-  //   id: '2'
-  // },
+  {
+    tags: [],
+    image: '/maranta.github.io/img/mrnt_1.png',
+    video: '',
+    music: '',
+    text: 'Ministry of Magic',
+    date: '',
+    id: '2'
+  },
 ];
 
 export default createPosts;
