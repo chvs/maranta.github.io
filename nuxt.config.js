@@ -41,6 +41,15 @@ export default {
     '~/assets/stylus/index.styl',
   ],
 
+  modules: [
+    '@nuxtjs/gtm',
+  ],
+
+  gtm: {
+    id: 'GTM-N2GPJJD',
+    // enabled: true,
+  },
+
   /*
   ** Build
   */
