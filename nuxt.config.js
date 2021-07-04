@@ -1,7 +1,7 @@
 // import path from 'path';
 require('dotenv').config();
 
-const keywordsContent = 'art';
+const keywordsContent = 'ui/ux designer, illustrator, photographer, musician';
 
 export default {
   /*
@@ -17,10 +17,12 @@ export default {
       { name: 'keywords', content: keywordsContent },
       { property: 'og:site_name', content: 'Maranta' },
       { property: 'og:locale', content: 'en_US' },
+      { property: 'og:title', content: 'maranta' },
+      { property: 'og:description', content: 'ui/ux designer, illustrator, photographer, musician' },
       { hid: 'image', property: 'og:image', content: 'http://www.mrnt.org/img/fb.png' },
       { hid: 'vk-image', property: 'vk:image', content: 'http://www.mrnt.org/img/vk.png' },
       { hid: 'tw-image', property: 'tw:image', content: 'http://www.mrnt.org/img/fb.png' },
-      { hid: 'description', name: 'description', content: 'cool project' },
+      { hid: 'description', name: 'description', content: 'ui/ux designer, illustrator, photographer, musician' },
       { hid: 'url', property: 'og:url', content: 'http://www.mrnt.org/' },
       { name: 'theme-color', content: '#ffffff' },
     ],

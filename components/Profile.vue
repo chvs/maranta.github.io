@@ -24,6 +24,11 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    subtitle: {
+      type: String,
+      default: 'ui/ux designer (since 2007)',
+    },
   },
 
   computed: {
@@ -46,10 +51,10 @@ export default {
 
 <template>
   <div :class="rootClass">
-    <div :class="$style.logo">
+    <nuxt-link to="/" :class="$style.logo">
       <Logo v-if="!isDark" />
       <LogoDark v-else />
-    </div>
+    </nuxt-link>
     <div :class="$style.descr">
       <div :class="$style.heading">
         <h1 :class="$style.title">maranta</h1>
@@ -86,7 +91,7 @@ export default {
           </li>
         </ul>
       </div>
-      <h2 :class="$style.subtitle">ui/ux designer (since 2007)</h2>
+      <h2 :class="$style.subtitle">{{ subtitle }}</h2>
     </div>
     <SwitchBtn />
   </div>

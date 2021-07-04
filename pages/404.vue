@@ -1,8 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
-import Icon from '~/static/svg/switch.svg';
-import Logo from '~/static/svg/logo_404.svg';
-import SwitchBtn from '~/components/Switch.vue';
+import Profile from '~/components/Profile.vue';
 
 export default {
   head() {
@@ -12,9 +10,7 @@ export default {
   },
 
   components: {
-    Icon,
-    Logo,
-    SwitchBtn,
+    Profile,
   },
 
   computed: {
@@ -27,20 +23,7 @@ export default {
 
 <template>
   <div>
-    <div :class="$style.header">
-      <nuxt-link to="/" :class="$style.logo">
-        <Logo />
-      </nuxt-link>
-      <div :class="$style.descr">
-        <div :class="$style.heading">
-          <h1 :class="$style.title">maranta</h1>
-          <div :class="$style.where">
-            where I am?
-          </div>
-        </div>
-      </div>
-      <SwitchBtn />
-    </div>
+    <Profile subtitle="where I am?" />
 
     <div :class="$style.nav">
       # 404
@@ -67,29 +50,8 @@ body {
   min-width: 320px;
 }
 
-.header {
-  display: flex;
-  border-bottom: 1px solid #E4E4E4;
-  padding-bottom: 14px;
-
-  &_dark {
-    background-color: red;
-  }
-}
-
-.title {
-  margin: 0 20px 8px 0;
-  font-size: 24px;
-}
-
 .nav {
   padding: 29px 0;
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  margin: 4px 19px 0 0;
 }
 
 .content {
