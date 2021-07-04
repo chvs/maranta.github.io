@@ -43,7 +43,10 @@ export default {
 
 <template>
   <div>
-    <Profile subtitle="where I am?" />
+    <Profile
+      :is-error-page="true"
+      subtitle="where I am?"
+    />
 
     <div :class="$style.nav">
       # 404

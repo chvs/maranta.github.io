@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Logo from '~/static/svg/logo.svg';
+import Logo404 from '~/static/svg/logo_404.svg';
 import LogoDark from '~/static/svg/logo_dark.svg';
 import Icon from '~/static/svg/switch.svg';
 import Inst from '~/static/svg/inst.svg';
@@ -11,6 +12,7 @@ import SwitchBtn from './Switch.vue';
 export default {
   components: {
     Logo,
+    Logo404,
     LogoDark,
     Icon,
     Inst,
@@ -21,6 +23,11 @@ export default {
 
   props: {
     isDark: {
+      type: Boolean,
+      default: false,
+    },
+
+    isErrorPage: {
       type: Boolean,
       default: false,
     },
@@ -51,7 +58,18 @@ export default {
 
 <template>
   <div :class="rootClass">
-    <nuxt-link to="/" :class="$style.logo">
+    <nuxt-link
+      v-if="isErrorPage"
+      to="/"
+      :class="$style.logo"
+    >
+      <Logo404 />
+    </nuxt-link>
+    <nuxt-link
+      v-else
+      to="/"
+      :class="$style.logo"
+    >
       <Logo v-if="!isDark" />
       <LogoDark v-else />
     </nuxt-link>
