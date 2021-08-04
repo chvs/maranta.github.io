@@ -80,7 +80,7 @@ export default {
           <li>
             <a
               :class="$style.link"
-              href="tg://resolve?domain=nm_name"
+              href="https://t.me/n_maranta"
               target="_blank"
               rel=”noopener”
             >
