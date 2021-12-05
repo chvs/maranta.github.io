@@ -25,7 +25,7 @@ export default {
   <div>
     <Profile
       :is-error-page="true"
-      subtitle="where I am?"
+      subtitle="where am I?"
     />
 
     <div :class="$style.nav">
