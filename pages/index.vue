@@ -27,5 +27,5 @@ import Feed from '~/components/Feed.vue';
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 </style>

@@ -1,6 +1,6 @@
 <script>
 import Post from './Post.vue';
-import createPosts from '~/constants/posts';
+import POSTS from '~/constants/posts';
 
 export default {
   components: {
@@ -9,7 +9,7 @@ export default {
 
   data() {
     return {
-      items: createPosts,
+      items: POSTS,
     }
   },
 
@@ -19,45 +19,28 @@ export default {
       default: false,
     },
   },
-
-  computed: {
-    rootClass() {
-      return {
-        [this.$style.root]: true,
-        [this.$style.root_dark]: this.isDark,
-      };
-    },
-  },
 }
 </script>
 
 <template>
-  <div :class="rootClass">
+  <div :class="$style.root">
     <div
       v-for="item in items"
       :key="item.id"
       :class="$style.item"
     >
-      <Post
-        :data="item"
-      />
+      <Post :data="item" />
     </div>
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 .root {
   padding-bottom: 60px;
-
-  &_dark {
-    .item {
-      border-bottom-color: #7C7C7C;
-    }
-  }
 }
 
 .item {
-  border-bottom: 1px solid #E4E4E4;
+  border-bottom: 1px solid $medium;
 
   &:last-child {
     border-bottom: 0;

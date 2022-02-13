@@ -20,23 +20,24 @@ export default {
 
 <template>
   <div :class="rootClass">
-    #demoreel #illustration #2d #3d #animation #music #ui/ux #gif #photo #video #text
     <span :class="$style.active">#all</span>
+    #ui/ux #photo #music #2d #3d #animation
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 .root {
-  border-bottom: 1px solid #E4E4E4;
-  padding-top: 14px;
-  padding-bottom: 18px;
+  border-bottom: 1px solid $medium;
+  padding: 20px 0;
 
   &_dark {
-    border-bottom-color: #7C7C7C;
+    .active {
+      color: $yellow;
+    }
   }
 }
 
 .active {
-  color: #FF6F6F;
+  color: $blue;
 }
 </style>

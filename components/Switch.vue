@@ -47,10 +47,9 @@ export default {
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 .root {
   margin-left: auto;
-  padding-top: 4px;
 
   @media (max-width: 414px) {
     padding-top: 18px;
@@ -70,22 +69,19 @@ export default {
   svg {
     width: 100%;
     height: 100%;
-    fill: #E4E4E4;
+    fill: $medium;
   }
 
   &:hover {
     svg {
-      fill: #B6B6B6;
+      fill: $dark;
     }
   }
 
   &_dark {
-    svg {
-      fill: #7C7C7C;
-    }
     &:hover {
       svg {
-        fill: #E4E4E4;
+        fill: #ffffff;
       }
     }
   }

@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
+import ArrowIcon from '~/assets/images/arrow.svg';
 
 export default {
   head() {
@@ -11,6 +12,7 @@ export default {
 
   components: {
     Profile,
+    ArrowIcon,
   },
 
   props: {
@@ -29,6 +31,20 @@ export default {
     ...mapGetters([
       'themeIsDark',
     ]),
+
+    linkClassNames() {
+      return {
+        [this.$style.link]: true,
+        [this.$style.link_dark]: this.themeIsDark,
+      }
+    },
+
+    navClassNames() {
+      return {
+        [this.$style.nav]: true,
+        [this.$style.nav_dark]: this.themeIsDark,
+      }
+    }
   },
 
   methods: {
@@ -45,36 +61,34 @@ export default {
   <div>
     <Profile
       :is-error-page="true"
-      subtitle="where I am?"
+      subtitle="where am I?"
     />
 
-    <div :class="$style.nav">
+    <div :class="navClassNames">
       # 404
     </div>
+
     <div :class="$style.content">
       <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
       <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
 
-      <nuxt-link
+      <NuxtLink
         to="/"
-        :class="$style.link"
+        :class="linkClassNames"
       >
-        Go home
-      </nuxt-link>
+        <ArrowIcon />Go home
+      </NuxtLink>
     </div>
   </div>
 </template>
 
-<style lang="stylus" module>
-html,
-body {
-  min-height: 100%;
-  height: 100%;
-  min-width: 320px;
-}
-
+<style lang="scss" module>
 .nav {
-  padding: 29px 0;
+  padding-top: 20px;
+
+  &_dark {
+    color: #FFFFFF;
+  }
 }
 
 .content {
@@ -88,12 +102,26 @@ body {
 }
 
 .link {
-  color: #00B3FF;
-  font-style: 18px;
-  line-height: 22px;
+  color: $blue;
+  text-decoration: none;
+
+  svg {
+    fill: $blue;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
 
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
+  }
+
+  &_dark {
+    color: $yellow;
+
+    svg {
+      fill: $yellow;
+    }
   }
 }
 </style>

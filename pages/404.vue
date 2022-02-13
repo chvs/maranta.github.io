@@ -35,17 +35,17 @@ export default {
       <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
       <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
 
-      <nuxt-link
+      <NuxtLink
         to="/"
         :class="$style.link"
       >
         Go home
-      </nuxt-link>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 html,
 body {
   min-height: 100%;
@@ -68,7 +68,7 @@ body {
 }
 
 .link {
-  color: #00B3FF;
+  color: $blue;
   font-style: 18px;
   line-height: 22px;
 

@@ -30,7 +30,7 @@ export default {
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 * {
   box-sizing: border-box;
 }
@@ -50,8 +50,10 @@ body {
 }
 
 body {
-  background-color: #fff;
-  overflow-anchor: none;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  min-width: 320px;
 }
 
 html {
@@ -100,12 +102,25 @@ iframe {
 
 .root {
   background-color: #fff;
-  color: #000;
+  color: $dark;
   min-height: 100%;
 
+  a {
+    color: $blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   &_dark {
-    background-color: #545151;
+    background-color: $dark;
     color: #fff;
+
+    a {
+      color: $yellow;
+    }
   }
 }
 </style>

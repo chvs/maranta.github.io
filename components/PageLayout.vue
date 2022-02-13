@@ -9,7 +9,7 @@ export default {
   </div>
 </template>
 
-<style lang="stylus" module>
+<style lang="scss" module>
 .root {
   max-width: 640px;
   margin: 0 auto;

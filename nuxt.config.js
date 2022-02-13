@@ -25,12 +25,13 @@ export default {
       { hid: 'image-width', property: 'og:image:width', content: '1200' },
       { hid: 'image-height', property: 'og:image:height', content: '630' },
       { hid: 'description', name: 'description', content: 'ui/ux designer, illustrator, photographer, musician' },
+      { hid: 'twitter-image', property: 'twitter:image', content: 'http://www.mrnt.org/img/share.png' },
+      { hid: 'twitter-card', property: 'twitter:card', content: 'summary_large_image' },
       { hid: 'url', property: 'og:url', content: 'http://www.mrnt.org/' },
-      { name: 'theme-color', content: '#ffffff' },
     ],
     link: [
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap' },
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
@@ -41,12 +42,15 @@ export default {
 
   target: 'static',
 
-  css: [
-    '~/assets/stylus/index.styl',
-  ],
+  css: ['@/assets/scss/global.scss'],
+
+  styleResources: {
+    scss: ['~/assets/scss/index.scss'],
+  },
 
   modules: [
     '@nuxtjs/gtm',
+    '@nuxtjs/style-resources'
   ],
 
   gtm: {
