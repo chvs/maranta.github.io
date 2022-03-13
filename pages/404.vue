@@ -54,7 +54,7 @@ body {
 }
 
 .nav {
-  padding: 29px 0;
+  padding: 20px 0;
 }
 
 .content {
@@ -69,7 +69,7 @@ body {
 
 .link {
   color: $blue;
-  font-style: 18px;
+  font-size: 18px;
   line-height: 22px;
 
   &:hover {
