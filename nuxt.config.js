@@ -4,6 +4,7 @@ require('dotenv').config();
 const keywordsContent = 'ui/ux designer, illustrator, photographer, musician';
 
 export default {
+  ssr: false,
   /*
   ** Headers of the page
   */
@@ -55,10 +56,6 @@ export default {
   modules: [
     '@nuxtjs/gtm',
     '@nuxtjs/style-resources'
-  ],
-
-  buildModules: [
-    ['cookie-universal-nuxt', { alias: 'cookies' }],
   ],
 
   gtm: {
