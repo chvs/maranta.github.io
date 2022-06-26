@@ -1,11 +1,5 @@
 <script>
-import ArrowIcon from '~/assets/images/arrow.svg';
-
 export default {
-  components: {
-    ArrowIcon,
-  },
-
   props: {
     isDark: {
       type: Boolean,
@@ -37,7 +31,6 @@ export default {
     @click="scrollToTop"
   >
     Up
-    <ArrowIcon :class="$style.icon" />
   </button>
 </template>
 
@@ -54,18 +47,6 @@ export default {
 
   &_dark {
     color: $yellow;
-
-    .icon {
-      fill: $yellow;
-    }
   }
-}
-
-.icon {
-  fill: $blue;
-  margin: -1px -2px 0 5px;
-  display: inline-block;
-  vertical-align: middle;
-  transform: rotate(90deg);
 }
 </style>

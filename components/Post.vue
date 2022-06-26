@@ -45,7 +45,11 @@ export default {
 
     <div v-else-if="data.video">
       <div :class="$style.videoWrap">
-        <iframe :src="data.video" :class="$style.video" frameborder="0">
+        <iframe
+          :src="data.video"
+          :class="$style.video"
+          frameborder="0"
+        >
         </iframe>
       </div>
     </div>
@@ -76,7 +80,7 @@ export default {
 
 <style lang="scss" module>
 .root {
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .title {

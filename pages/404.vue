@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
+import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   head() {
@@ -14,9 +15,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters([
-      'themeIsDark',
-    ]),
+    ...mapGetters({
+      themeIsDark: 'theme/themeIsDark',
+    }),
+
+    isDark() {
+      return this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED);
+    },
   },
 };
 </script>
@@ -25,14 +30,14 @@ export default {
   <div>
     <Profile
       :is-error-page="true"
-      subtitle="where am I?"
+      :is-dark="isDark"
     />
 
     <div :class="$style.nav">
       # 404
     </div>
     <div :class="$style.content">
-      <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
+      <img v-if="!isDark" :class="$style.image" src="/img/404.gif" alt="">
       <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
 
       <NuxtLink
@@ -54,7 +59,7 @@ body {
 }
 
 .nav {
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .content {

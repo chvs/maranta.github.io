@@ -1,21 +1,28 @@
 <script>
-import { mapGetters } from 'vuex';
-import Logo from '~/static/svg/logo.svg';
-import Logo404 from '~/static/svg/logo_404.svg';
-import LogoDark from '~/static/svg/logo_dark.svg';
+import Logo from '~/assets/images/logo.svg';
+import LogoDark from '~/assets/images/logo_dark.svg';
+import Logo404 from '~/assets/images/logo_404.svg';
+import Logo404Dark from '~/assets/images/logo_404_dark.svg';
 import Icon from '~/static/svg/switch.svg';
 import TelegramIcon from '~/assets/images/telegram.svg';
-import TwitterIcon from '~/assets/images/twitter.svg';
+import MastodonIcon from '~/assets/images/mastodon.svg';
+import SubsocialIcon from '~/assets/images/subsocial.svg';
+import OdyseeIcon from '~/assets/images/odysee.svg';
+import GithubIcon from '~/assets/images/github.svg';
 import SwitchBtn from './Switch.vue';
 
 export default {
   components: {
     Logo,
-    Logo404,
     LogoDark,
+    Logo404,
+    Logo404Dark,
     Icon,
     TelegramIcon,
-    TwitterIcon,
+    MastodonIcon,
+    SubsocialIcon,
+    OdyseeIcon,
+    GithubIcon,
     SwitchBtn,
   },
 
@@ -28,11 +35,6 @@ export default {
     isErrorPage: {
       type: Boolean,
       default: false,
-    },
-
-    subtitle: {
-      type: String,
-      default: 'ui/ux (since 2007)',
     },
   },
 
@@ -61,7 +63,8 @@ export default {
       to="/"
       :class="$style.logo"
     >
-      <Logo404 />
+      <Logo404Dark v-if="isDark" />
+      <Logo404 v-else />
     </NuxtLink>
 
     <NuxtLink
@@ -69,15 +72,22 @@ export default {
       to="/"
       :class="$style.logo"
     >
-      <Logo v-if="!isDark" />
-      <LogoDark v-else />
+      <LogoDark v-if="isDark" />
+      <Logo v-else />
     </NuxtLink>
 
     <div>
-      <div :class="$style.heading">
-        <b :class="$style.title">MARANTA</b>
+      <div>
+        <h1 :class="$style.title">
+          MARANTA
+          <span>(ui/ux)</span>
+        </h1>
 
-        <ul :class="socialsClass">
+        <p v-if="isErrorPage">
+          where am I?
+        </p>
+
+        <ul v-else :class="socialsClass">
           <li>
             <a
               :class="$style.link"
@@ -92,17 +102,49 @@ export default {
           <li>
             <a
               :class="$style.link"
-              href="https://twitter.com/n_maranta"
+              href="hhttps://github.com/nmaranta"
               target="_blank"
               rel=”noopener”
             >
-              <TwitterIcon />
+              <GithubIcon />
+            </a>
+          </li>
+
+          <li>
+            <a
+              :class="$style.link"
+              href="https://mastodon.online/web/@maranta"
+              target="_blank"
+              rel=”noopener”
+            >
+              <MastodonIcon />
+            </a>
+          </li>
+
+          <li>
+            <a
+              :class="$style.link"
+              href="https://odysee.com/@maranta:0"
+              target="_blank"
+              rel=”noopener”
+            >
+              <OdyseeIcon />
+            </a>
+          </li>
+
+          <li>
+            <a
+              :class="$style.link"
+              href="https://app.subsocial.network/accounts/3sLnig8qvRdUSFnhYCVoeNTWpuc6Vs9EiUmyZ6pFrkvjwyrz"
+              target="_blank"
+              rel=”noopener”
+            >
+              <SubsocialIcon />
             </a>
           </li>
         </ul>
       </div>
 
-      <h2 :class="$style.subtitle">{{ subtitle }}</h2>
     </div>
     <SwitchBtn />
   </div>
@@ -111,33 +153,30 @@ export default {
 <style lang="scss" module>
 .root {
   display: flex;
-  border-bottom: 1px solid $medium;
+  border-bottom: 2px solid $mild;
   padding-bottom: 14px;
+
+  &_dark {
+    border-color: $medium;
+  }
 }
 
 .logo {
   width: 50px;
   height: 50px;
-  margin-right: 15px;
+  margin-right: 10px;
   flex-shrink: 0;
 }
 
 .title {
-  margin: -2px 15px 6px 0;
+  margin: -3px 10px 8px 0;
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
-}
 
-.heading {
-  display: flex;
-  align-items: flex-start;
-}
-
-.subtitle {
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0;
+  span {
+    color: $medium;
+  }
 }
 
 .socials {
@@ -145,11 +184,12 @@ export default {
   margin: 0;
   display: flex;
   align-items: center;
+  margin-top: 13px;
 
   &_dark {
     .link {
       &:hover {
-        svg {
+        svg path {
           fill: #fff;
         }
       }
@@ -157,7 +197,7 @@ export default {
   }
 
   li {
-    margin-right: 12px;
+    margin-right: 19px;
 
     &:last-child {
       margin-right: 0;
@@ -174,7 +214,7 @@ export default {
   }
 
   &:hover {
-    svg {
+    svg path {
       fill: $dark;
     }
   }

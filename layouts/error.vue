@@ -1,7 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
-import ArrowIcon from '~/assets/images/arrow.svg';
+import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   head() {
@@ -12,7 +12,6 @@ export default {
 
   components: {
     Profile,
-    ArrowIcon,
   },
 
   props: {
@@ -22,20 +21,15 @@ export default {
     },
   },
 
-  data() {
-    return {
-    };
-  },
-
   computed: {
-    ...mapGetters([
-      'themeIsDark',
-    ]),
+    ...mapGetters({
+      themeIsDark: 'theme/themeIsDark',
+    }),
 
     linkClassNames() {
       return {
         [this.$style.link]: true,
-        [this.$style.link_dark]: this.themeIsDark,
+        [this.$style.link_dark]: this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED),
       }
     },
 
@@ -76,7 +70,7 @@ export default {
         to="/"
         :class="linkClassNames"
       >
-        <ArrowIcon />Go home
+        Go home
       </NuxtLink>
     </div>
   </div>
@@ -84,7 +78,7 @@ export default {
 
 <style lang="scss" module>
 .nav {
-  padding-top: 20px;
+  padding-top: 15px;
 
   &_dark {
     color: #FFFFFF;
@@ -105,23 +99,12 @@ export default {
   color: $blue;
   text-decoration: none;
 
-  svg {
-    fill: $blue;
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
   &:hover {
     text-decoration: underline;
   }
 
   &_dark {
     color: $yellow;
-
-    svg {
-      fill: $yellow;
-    }
   }
 }
 </style>

@@ -1,5 +1,13 @@
 <script>
+import TAGS from '~/constants/tags';
+
 export default {
+  data() {
+    return {
+      items: TAGS,
+    };
+  },
+
   props: {
     isDark: {
       type: Boolean,
@@ -20,24 +28,89 @@ export default {
 
 <template>
   <div :class="rootClass">
-    <span :class="$style.active">#all</span>
-    #ui/ux #photo #music #2d #3d #animation
+    <ul :class="$style.list">
+      <li>
+        <NuxtLink
+          to="/"
+          exact
+          :class="$style.link"
+          :activeClass="$style.link_active"
+        >
+          all
+        </NuxtLink>
+      </li>
+
+      <!-- <li>
+        <NuxtLink
+          to="/cv"
+          exact
+          :class="$style.link"
+          :activeClass="$style.link_active"
+        >
+          cv
+        </NuxtLink>
+      </li> -->
+
+      <li
+        v-for="item in items"
+        :key="item"
+      >
+        <NuxtLink
+          :to="`/${item}`"
+          :class="$style.link"
+          :activeClass="$style.link_active"
+        >
+          {{ item }}
+        </NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 
 <style lang="scss" module>
 .root {
-  border-bottom: 1px solid $medium;
-  padding: 20px 0;
+  border-bottom: 2px solid $mild;
+  padding: 15px 0;
 
   &_dark {
-    .active {
-      color: $yellow;
+    border-color: $medium;
+
+    .link {
+      color: #fff!important;
+
+      &_active,
+      &:hover {
+        color: $yellow!important;
+      }
     }
   }
 }
 
 .active {
   color: $blue;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link {
+  display: flex;
+  margin-right: 4px;
+  color: $dark!important;
+
+  &:hover {
+    text-decoration: none!important;
+    color: $blue!important;
+  }
+
+  &_active {
+    color: $blue!important;
+  }
+
+  &::before {
+    content: '#';
+  }
 }
 </style>

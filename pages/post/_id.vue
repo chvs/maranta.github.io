@@ -5,19 +5,19 @@ import Nav from '~/components/Nav.vue';
 import Feed from '~/components/Feed.vue';
 import ScrollTopButton from '~/components/ScrollTopButton.vue';
 import POSTS from '~/constants/posts';
-import ArrowIcon from '~/assets/images/arrow.svg';
+import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   validate({ params, redirect }) {
     if (!params.id) {
-      return redirect({ name: 'index' });
+      return redirect({ name: '404' });
     }
 
     const posts = POSTS.filter(item => item.slug);
     const existingPost = posts.find((item) => item.slug === params.id);
 
     if (!existingPost) {
-      return redirect({ name: 'index' });
+      return redirect({ name: '404' });
     }
 
     return true;
@@ -32,6 +32,8 @@ export default {
   data() {
     return {
       items: POSTS,
+      isButtonVisible: false,
+      removeListeners: null,
     };
   },
 
@@ -40,26 +42,55 @@ export default {
     Nav,
     Feed,
     ScrollTopButton,
-    ArrowIcon,
+  },
+
+  mounted() {
+    this.initListeners();
+  },
+
+  beforeDestroy() {
+    if (this.removeListeners) {
+      this.removeListeners();
+    }
   },
 
   computed: {
-    ...mapGetters(['themeIsDark']),
+    ...mapGetters({
+      themeIsDark: 'theme/themeIsDark',
+    }),
+
+    footerClassNames() {
+      return {
+        [this.$style.footer]: true,
+        [this.$style.footer_dark]: this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED),
+      };
+    },
 
     data() {
       const posts = this.items.filter(item => item.slug);
-      const post = posts.find(
-        (item) => item.slug === this.$route.params.id,
-      );
+      return posts.find((item) => item.slug === this.$route.params.id);
+    },
+  },
 
-      return post;
+  methods: {
+    initListeners() {
+      const visibilityHandler = this.visibilityHandler.bind(this);
+
+      visibilityHandler();
+
+      window.addEventListener('scroll', visibilityHandler);
+      window.addEventListener('resize', visibilityHandler);
+
+      this.removeListeners = () => {
+        window.removeEventListener('scroll', visibilityHandler);
+        window.removeEventListener('resize', visibilityHandler);
+      };
     },
 
-    iconClassNames() {
-      return {
-        [this.$style.icon]: true,
-        [this.$style.icon_dark]: this.themeIsDark,
-      }
+    visibilityHandler() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      this.isButtonVisible = scrollTop > (window.innerHeight / 2);
     },
   },
 };
@@ -68,6 +99,7 @@ export default {
 <template>
   <div>
     <Profile :is-dark="themeIsDark" />
+    <Nav :is-dark="themeIsDark" />
 
     <ul v-if="data.tags.length" :class="$style.list">
       <li v-if="data.date" :class="$style.date">
@@ -83,17 +115,16 @@ export default {
       </li>
     </ul>
 
-    <h1 :class="$style.title">{{ data.title }}</h1>
+    <h1 v-if="data.title" :class="$style.title">{{ data.title }}</h1>
 
     <div v-html="data.content" :class="$style.content" />
 
-    <footer :class="$style.footer">
+    <footer :class="footerClassNames">
       <NuxtLink to="/">
-        <ArrowIcon :class="iconClassNames" />
         Go home
       </NuxtLink>
 
-      <ScrollTopButton :isDark="themeIsDark" />
+      <ScrollTopButton v-show="isButtonVisible" :isDark="themeIsDark" />
     </footer>
   </div>
 </template>
@@ -102,7 +133,7 @@ export default {
 .list {
   color: $medium;
   display: flex;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .tag {
@@ -129,7 +160,7 @@ export default {
 }
 
 .title {
-  margin: 0 0 20px;
+  margin: 0 0 15px;
 }
 
 .content {
@@ -137,36 +168,29 @@ export default {
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
-    margin: 0 0 20px;
+    margin: 0 0 15px;
   }
 
   p {
     text-indent: 37px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   img {
     display: block;
     max-width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
-  border-top: 1px solid $medium;
-}
-
-.icon {
-  fill: $blue;
-  margin: -2px 6px 0 0;
-  display: inline-block;
-  vertical-align: middle;
+  padding: 15px 0;
+  border-top: 2px solid $mild;
 
   &_dark {
-    fill: $yellow;
+    border-color: $medium;
   }
 }
 </style>

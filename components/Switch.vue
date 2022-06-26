@@ -2,6 +2,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import Icon from '~/static/svg/switch.svg';
 import IconDark from '~/static/svg/switch_dark.svg';
+import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   components: {
@@ -10,9 +11,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters([
-      'themeIsDark',
-    ]),
+    ...mapGetters({
+      themeIsDark: 'theme/themeIsDark',
+    }),
 
     btnClass() {
       return {
@@ -24,12 +25,19 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'setTheme',
-    ]),
+    ...mapActions({
+      setThemeLight: 'theme/setThemeLight',
+      setThemeDark: 'theme/setThemeDark',
+    }),
 
     clickHandler() {
-      this.setTheme();
+      if (this.themeIsDark) {
+        this.setThemeLight();
+        this.$cookies.remove(IS_DARK_THEME_ENABLED);
+      } else {
+        this.setThemeDark();
+        this.$cookies.set(IS_DARK_THEME_ENABLED, true);
+      }
     }
   }
 };
@@ -39,7 +47,7 @@ export default {
   <div :class="$style.root">
     <button
       :class="btnClass"
-      @click="clickHandler()"
+      @click="clickHandler"
     >
       <Icon v-if="!themeIsDark" />
       <IconDark v-else />
@@ -50,10 +58,6 @@ export default {
 <style lang="scss" module>
 .root {
   margin-left: auto;
-
-  @media (max-width: 414px) {
-    padding-top: 18px;
-  }
 }
 
 .btn {

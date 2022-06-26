@@ -48,9 +48,17 @@ export default {
     scss: ['~/assets/scss/index.scss'],
   },
 
+  plugins: [
+    '~/plugins/setup.client',
+  ],
+
   modules: [
     '@nuxtjs/gtm',
     '@nuxtjs/style-resources'
+  ],
+
+  buildModules: [
+    ['cookie-universal-nuxt', { alias: 'cookies' }],
   ],
 
   gtm: {
