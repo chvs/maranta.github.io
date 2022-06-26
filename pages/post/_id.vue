@@ -5,7 +5,6 @@ import Nav from '~/components/Nav.vue';
 import Feed from '~/components/Feed.vue';
 import ScrollTopButton from '~/components/ScrollTopButton.vue';
 import POSTS from '~/constants/posts';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   validate({ params, redirect }) {
@@ -62,7 +61,7 @@ export default {
     footerClassNames() {
       return {
         [this.$style.footer]: true,
-        [this.$style.footer_dark]: this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED),
+        [this.$style.footer_dark]: this.themeIsDark,
       };
     },
 

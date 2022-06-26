@@ -1,7 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   head() {
@@ -29,7 +28,7 @@ export default {
     linkClassNames() {
       return {
         [this.$style.link]: true,
-        [this.$style.link_dark]: this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED),
+        [this.$style.link_dark]: this.themeIsDark,
       }
     },
 
@@ -38,7 +37,7 @@ export default {
         [this.$style.nav]: true,
         [this.$style.nav_dark]: this.themeIsDark,
       }
-    }
+    },
   },
 
   methods: {

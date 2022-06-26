@@ -4,7 +4,6 @@ import Profile from '~/components/Profile.vue';
 import Nav from '~/components/Nav.vue';
 import Feed from '~/components/Feed.vue';
 import POSTS from '~/constants/posts';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   data() {
@@ -23,21 +22,14 @@ export default {
     ...mapGetters({
       themeIsDark: 'theme/themeIsDark',
     }),
-
-    isDark() {
-      return this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED);
-    },
   },
 }
 </script>
 
 <template>
   <div>
-    <Profile :is-dark="isDark" />
-    <Nav :is-dark="isDark" />
-    <Feed :is-dark="isDark" :posts="posts" />
+    <Profile :is-dark="themeIsDark" />
+    <Nav :is-dark="themeIsDark" />
+    <Feed :is-dark="themeIsDark" :posts="posts" />
   </div>
 </template>
-
-<style lang="scss" module>
-</style>

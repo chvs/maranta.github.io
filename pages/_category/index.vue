@@ -5,7 +5,6 @@ import Nav from '~/components/Nav.vue';
 import Feed from '~/components/Feed.vue';
 import POSTS from '~/constants/posts';
 import TAGS from '~/constants/tags';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   validate({ params, redirect }) {
@@ -30,14 +29,10 @@ export default {
       themeIsDark: 'theme/themeIsDark',
     }),
 
-    isDark() {
-      return this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED);
-    },
-
     linkClassNames() {
       return {
         [this.$style.link]: true,
-        [this.$style.link_dark]: this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED),
+        [this.$style.link_dark]: this.themeIsDark,
       }
     },
 
@@ -52,12 +47,12 @@ export default {
 
 <template>
   <div>
-    <Profile :is-dark="isDark" />
-    <Nav :is-dark="isDark" />
+    <Profile :is-dark="themeIsDark" />
+    <Nav :is-dark="themeIsDark" />
     <Feed
       v-if="posts.length"
       :posts="posts"
-      :is-dark="isDark"
+      :is-dark="themeIsDark"
     />
 
     <div v-else>

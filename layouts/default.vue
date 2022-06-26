@@ -1,7 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
 import PageLayout from '~/components/PageLayout.vue';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   computed: {
@@ -12,7 +11,7 @@ export default {
     rootClass() {
       return {
         [this.$style.root]: true,
-        [this.$style.root_dark]: this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED),
+        [this.$style.root_dark]: this.themeIsDark,
       };
     },
   },

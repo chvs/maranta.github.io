@@ -1,7 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   head() {
@@ -19,8 +18,18 @@ export default {
       themeIsDark: 'theme/themeIsDark',
     }),
 
-    isDark() {
-      return this.themeIsDark || this.$cookies.get(IS_DARK_THEME_ENABLED);
+    linkClassNames() {
+      return {
+        [this.$style.link]: true,
+        [this.$style.link_dark]: this.themeIsDark,
+      }
+    },
+
+    navClassNames() {
+      return {
+        [this.$style.nav]: true,
+        [this.$style.nav_dark]: this.themeIsDark,
+      }
     },
   },
 };
@@ -30,19 +39,19 @@ export default {
   <div>
     <Profile
       :is-error-page="true"
-      :is-dark="isDark"
+      :is-dark="themeIsDark"
     />
 
-    <div :class="$style.nav">
+    <div :class="navClassNames">
       # 404
     </div>
     <div :class="$style.content">
-      <img v-if="!isDark" :class="$style.image" src="/img/404.gif" alt="">
+      <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
       <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
 
       <NuxtLink
         to="/"
-        :class="$style.link"
+        :class="linkClassNames"
       >
         Go home
       </NuxtLink>
@@ -59,7 +68,11 @@ body {
 }
 
 .nav {
-  padding: 15px 0;
+  padding-top: 15px;
+
+  &_dark {
+    color: #FFFFFF;
+  }
 }
 
 .content {
@@ -74,11 +87,14 @@ body {
 
 .link {
   color: $blue;
-  font-size: 18px;
-  line-height: 22px;
+  text-decoration: none;
 
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
+  }
+
+  &_dark {
+    color: $yellow;
   }
 }
 </style>

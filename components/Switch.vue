@@ -2,7 +2,6 @@
 import { mapGetters, mapActions } from 'vuex';
 import Icon from '~/static/svg/switch.svg';
 import IconDark from '~/static/svg/switch_dark.svg';
-import IS_DARK_THEME_ENABLED from '~/constants/cookies';
 
 export default {
   components: {
@@ -21,7 +20,6 @@ export default {
         [this.$style.btn_dark]: this.themeIsDark,
       };
     },
-
   },
 
   methods: {
@@ -33,10 +31,8 @@ export default {
     clickHandler() {
       if (this.themeIsDark) {
         this.setThemeLight();
-        this.$cookies.remove(IS_DARK_THEME_ENABLED);
       } else {
         this.setThemeDark();
-        this.$cookies.set(IS_DARK_THEME_ENABLED, true);
       }
     }
   }

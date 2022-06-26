@@ -49,7 +49,7 @@ export default {
   },
 
   plugins: [
-    '~/plugins/setup.client',
+    // '~/plugins/setup.client',
   ],
 
   modules: [
