@@ -25,7 +25,7 @@
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/style-resources": "1.2.1",
     "dotenv": "8.2.0",
-    "nuxt": "2.15.8"
+    "nuxt": "3.1.2"
   },
   "devDependencies": {
     "cross-env": "5.2.0",
