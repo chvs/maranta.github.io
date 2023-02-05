@@ -7,6 +7,7 @@ import Icon from '~/static/svg/switch.svg';
 import TelegramIcon from '~/assets/images/telegram.svg';
 import MastodonIcon from '~/assets/images/mastodon.svg';
 import SubsocialIcon from '~/assets/images/subsocial.svg';
+import LinkedinIcon from '~/assets/images/linkedin.svg';
 import OdyseeIcon from '~/assets/images/odysee.svg';
 import GithubIcon from '~/assets/images/github.svg';
 import SwitchBtn from './Switch.vue';
@@ -21,6 +22,7 @@ export default {
     TelegramIcon,
     MastodonIcon,
     SubsocialIcon,
+    LinkedinIcon,
     OdyseeIcon,
     GithubIcon,
     SwitchBtn,
@@ -102,6 +104,17 @@ export default {
           <li>
             <a
               :class="$style.link"
+              href="https://www.linkedin.com/in/nmaranta"
+              target="_blank"
+              rel=”noopener”
+            >
+              <LinkedinIcon />
+            </a>
+          </li>
+
+          <li v-if="false">
+            <a
+              :class="$style.link"
               href="hhttps://github.com/nmaranta"
               target="_blank"
               rel=”noopener”
@@ -110,7 +123,7 @@ export default {
             </a>
           </li>
 
-          <li>
+          <li v-if="false">
             <a
               :class="$style.link"
               href="https://mastodon.online/web/@maranta"
@@ -121,7 +134,7 @@ export default {
             </a>
           </li>
 
-          <li>
+          <li v-if="false">
             <a
               :class="$style.link"
               href="https://odysee.com/@maranta:0"
@@ -132,7 +145,7 @@ export default {
             </a>
           </li>
 
-          <li>
+          <li v-if="false">
             <a
               :class="$style.link"
               href="https://app.subsocial.network/accounts/3sLnig8qvRdUSFnhYCVoeNTWpuc6Vs9EiUmyZ6pFrkvjwyrz"
