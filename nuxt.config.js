@@ -9,7 +9,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'maranta',
+    title: '@менеджментваду',
     meta: [
       { lang: 'en' },
       { charset: 'utf-8' },

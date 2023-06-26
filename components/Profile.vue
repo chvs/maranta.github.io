@@ -82,14 +82,22 @@ export default {
       <div>
         <h1 :class="$style.title">
           MARANTA
-          <span>(ui/ux)</span>
         </h1>
 
         <p v-if="isErrorPage">
           where am I?
         </p>
 
-        <ul v-else :class="socialsClass">
+        <a v-else
+          :class="$style.caption"
+          href="https://t.me/hell_management"
+          target="_blank"
+          rel=”noopener”
+        >
+          @менеджментваду
+        </a>
+
+        <!-- <ul v-else :class="socialsClass">
           <li>
             <a
               :class="$style.link"
@@ -155,7 +163,7 @@ export default {
               <SubsocialIcon />
             </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
 
     </div>
@@ -172,6 +180,10 @@ export default {
   &_dark {
     border-color: $medium;
   }
+
+  .caption {
+    color: $medium;
+  }
 }
 
 .logo {
@@ -182,14 +194,10 @@ export default {
 }
 
 .title {
-  margin: -3px 10px 8px 0;
+  margin: 3px 10px -3px 0;
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
-
-  span {
-    color: $medium;
-  }
 }
 
 .socials {
