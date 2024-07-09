@@ -57,6 +57,10 @@ export default {
       subtitle="where am I?"
     />
 
+    <h2 :class="$style.title">
+      Мы&nbsp;делаем здесь amazing customer service&nbsp;&copy;
+    </h2>
+
     <div :class="navClassNames">
       # 404
     </div>
@@ -77,10 +81,12 @@ export default {
 
 <style lang="scss" module>
 .nav {
-  padding-top: 15px;
+  border-bottom: 2px solid $mild;
+  padding-bottom: 15px;
 
   &_dark {
     color: #FFFFFF;
+    border-color: $medium;
   }
 }
 
@@ -105,5 +111,12 @@ export default {
   &_dark {
     color: $yellow;
   }
+}
+
+.title {
+  margin: 15px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
 }
 </style>

@@ -1,6 +1,3 @@
-// import path from 'path';
-require('dotenv').config();
-
 const keywordsContent = 'ui/ux designer, illustrator, photographer, musician';
 
 export default {
@@ -49,10 +46,6 @@ export default {
     scss: ['~/assets/scss/index.scss'],
   },
 
-  plugins: [
-    // '~/plugins/setup.client',
-  ],
-
   modules: [
     '@nuxtjs/gtm',
     '@nuxtjs/style-resources'
@@ -76,7 +69,7 @@ export default {
         },
       },
     },
-    extend(config, { isDev, isClient }) {
+    extend(config) {
       const svgRule = config.module.rules
         .find(rule => rule.test.test('.svg'));
 

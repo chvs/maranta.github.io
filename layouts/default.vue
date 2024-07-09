@@ -66,7 +66,8 @@ ul, li {
   padding: 0;
 }
 
-p {
+p,
+figure {
   margin: 0;
   padding: 0;
 }

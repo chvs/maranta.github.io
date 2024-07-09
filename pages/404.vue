@@ -42,9 +42,14 @@ export default {
       :is-dark="themeIsDark"
     />
 
+    <h2 :class="$style.title">
+      Мы&nbsp;делаем здесь amazing customer service&nbsp;&copy;
+    </h2>
+
     <div :class="navClassNames">
       # 404
     </div>
+
     <div :class="$style.content">
       <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
       <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
@@ -68,10 +73,12 @@ body {
 }
 
 .nav {
-  padding-top: 15px;
+  border-bottom: 2px solid $mild;
+  padding-bottom: 15px;
 
   &_dark {
     color: #FFFFFF;
+    border-color: $medium;
   }
 }
 
@@ -96,5 +103,12 @@ body {
   &_dark {
     color: $yellow;
   }
+}
+
+.title {
+  margin: 15px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
 }
 </style>

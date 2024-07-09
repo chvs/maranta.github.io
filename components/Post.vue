@@ -35,9 +35,7 @@ export default {
       </li>
     </ul>
 
-    <h1 v-if="data.title" :class="$style.title">
-      {{ data.title }}
-    </h1>
+    <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
     <div v-if="data.image">
       <img :src="data.image" :class="$style.image" alt="" />
@@ -80,7 +78,7 @@ export default {
 
 <style lang="scss" module>
 .root {
-  padding: 15px 0;
+  padding: 20px 0;
 }
 
 .title {

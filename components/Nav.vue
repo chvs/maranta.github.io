@@ -28,6 +28,10 @@ export default {
 
 <template>
   <div :class="rootClass">
+    <h2 :class="$style.title">
+      Мы&nbsp;делаем здесь amazing customer service&nbsp;&copy;
+    </h2>
+
     <ul :class="$style.list">
       <li>
         <NuxtLink
@@ -84,6 +88,13 @@ export default {
       }
     }
   }
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
 }
 
 .active {

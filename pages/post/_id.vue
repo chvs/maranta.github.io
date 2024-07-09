@@ -58,6 +58,13 @@ export default {
       themeIsDark: 'theme/themeIsDark',
     }),
 
+    contentClassNames() {
+      return {
+        [this.$style.content]: true,
+        [this.$style.content_dark]: this.themeIsDark,
+      };
+    },
+
     footerClassNames() {
       return {
         [this.$style.footer]: true,
@@ -114,9 +121,9 @@ export default {
       </li>
     </ul>
 
-    <h1 v-if="data.title" :class="$style.title">{{ data.title }}</h1>
+    <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
-    <div v-html="data.content" :class="$style.content" />
+    <div v-html="data.content" :class="contentClassNames" />
 
     <footer :class="footerClassNames">
       <NuxtLink to="/">
@@ -180,6 +187,46 @@ export default {
     max-width: 100%;
     margin-bottom: 15px;
   }
+
+  ul, li {
+    list-style: circle;
+  }
+
+  ul {
+    padding-left: 19px;
+    margin-bottom: 15px;
+  }
+
+  figure {
+    margin-bottom: 30px;
+  }
+
+  svg {
+    width: 20px;
+    height: 16px;
+    fill: $medium;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 5px 0 0;
+  }
+
+  &_dark {
+
+    :global(.quote) {
+      background-color: $semidark;
+      color: $light;
+    }
+  }
+}
+
+:global(.quote) {
+  background-color: $mild;
+  border-radius: 3px;
+  padding: 20px;
+  font-weight: 500;
+  color: $dark;
+  text-indent: 0!important;
+  text-align: center;
 }
 
 .footer {
