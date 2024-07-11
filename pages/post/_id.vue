@@ -178,7 +178,7 @@ export default {
   }
 
   p {
-    text-indent: 37px;
+    text-indent: 19px;
     margin-bottom: 15px;
   }
 
@@ -189,7 +189,7 @@ export default {
   }
 
   ul, li {
-    list-style: circle;
+    list-style: disc;
   }
 
   ul {
@@ -232,7 +232,7 @@ export default {
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 15px 0 30px;
   border-top: 2px solid $mild;
 
   &_dark {

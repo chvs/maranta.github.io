@@ -29,7 +29,7 @@ export default {
 <template>
   <div :class="rootClass">
     <h2 :class="$style.title">
-      Мы&nbsp;делаем здесь amazing customer service&nbsp;&copy;
+      Мы&nbsp;делаем здесь amazing customer service (c)
     </h2>
 
     <ul :class="$style.list">
