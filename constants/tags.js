@@ -1,5 +1,5 @@
 const TAGS = [
-  'человеко_часы',
+  'work',
   'photo',
 ];
 

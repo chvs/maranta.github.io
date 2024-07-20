@@ -1,4 +1,6 @@
 <script>
+import declOfNum from '~/utils/declOfNum';
+
 export default {
   props: {
     data: {
@@ -11,6 +13,12 @@ export default {
     postLink() {
       return this.data.slug ? `post/${this.data.slug}` : `post/${this.data.id}`;
     },
+
+    readingTime() {
+      const time = this.data.time;
+
+      return time ? `${time} ${declOfNum(time)}` : '';
+    }
   },
 
   methods: {
@@ -32,6 +40,10 @@ export default {
 
       <li v-for="(item, index) in data.tags" :key="index" :class="$style.tag">
         {{ item }}
+      </li>
+
+      <li v-if="readingTime">
+        &bull; читать {{ readingTime }}
       </li>
     </ul>
 

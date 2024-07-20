@@ -5,6 +5,7 @@ import Nav from '~/components/Nav.vue';
 import Feed from '~/components/Feed.vue';
 import ScrollTopButton from '~/components/ScrollTopButton.vue';
 import POSTS from '~/constants/posts';
+import declOfNum from '~/utils/declOfNum';
 
 export default {
   validate({ params, redirect }) {
@@ -76,6 +77,12 @@ export default {
       const posts = this.items.filter(item => item.slug);
       return posts.find((item) => item.slug === this.$route.params.id);
     },
+
+    readingTime() {
+      const time = this.data.time;
+
+      return time ? `${time} ${declOfNum(time)}` : '';
+    }
   },
 
   methods: {
@@ -118,6 +125,10 @@ export default {
         :class="$style.tag"
       >
         {{ item }}
+      </li>
+
+      <li v-if="readingTime">
+        &bull; читать {{ readingTime }}
       </li>
     </ul>
 
@@ -169,6 +180,11 @@ export default {
   margin: 0 0 15px;
 }
 
+.time {
+  color: $medium;
+  margin-bottom: 20px;
+}
+
 .content {
   h2 {
     font-size: 18px;
@@ -217,6 +233,10 @@ export default {
       color: $light;
     }
   }
+}
+
+:global(p.single) {
+  margin-bottom: 0;
 }
 
 :global(.quote) {

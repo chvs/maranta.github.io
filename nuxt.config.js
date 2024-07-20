@@ -6,7 +6,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: '@менеджментваду',
+    title: '@менеджмент_в_аду',
     meta: [
       { lang: 'en' },
       { charset: 'utf-8' },
