@@ -169,7 +169,7 @@ const createPosts = [
         Удачи)
       </p>
     `,
-    date: 'jul 16, 2024',
+    date: 'jul 20, 2024',
     id: '6',
     slug: 'communication',
     time: 6,
