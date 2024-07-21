@@ -94,7 +94,7 @@ export default {
           target="_blank"
           rel=”noopener”
         >
-          @менеджмент_в_аду
+          @менеджментваду
         </a>
 
         <!-- <ul v-else :class="socialsClass">
