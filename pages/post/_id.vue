@@ -204,11 +204,16 @@ export default {
     margin-bottom: 15px;
   }
 
-  ul, li {
+  ul, ul > li {
     list-style: disc;
   }
 
   ul {
+    padding-left: 19px;
+    margin-bottom: 15px;
+  }
+
+  ol {
     padding-left: 19px;
     margin-bottom: 15px;
   }

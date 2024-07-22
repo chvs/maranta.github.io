@@ -60,10 +60,21 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-ul, li {
+ul, ul > li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+ol {
+  list-style-type: decimal;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 p,
