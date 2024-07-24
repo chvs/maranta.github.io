@@ -101,6 +101,10 @@ img {
   page-break-inside: avoid;
 }
 
+b {
+  font-weight: 500;
+}
+
 iframe {
   border: none;
 }
