@@ -2,6 +2,8 @@
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
 import Nav from '~/components/Nav.vue';
+import IconTop from '~/assets/images/404_1.svg';
+import IconBottom from '~/assets/images/404_2.svg';
 
 export default {
   head() {
@@ -13,6 +15,8 @@ export default {
   components: {
     Profile,
     Nav,
+    IconTop,
+    IconBottom
   },
 
   computed: {
@@ -44,7 +48,10 @@ export default {
     </div>
 
     <div :class="$style.content">
-      <img :class="$style.image" src="/img/404.gif" alt="">
+      <div :class="$style.icons">
+        <IconTop :class="$style.top"/>
+        <IconBottom :class="$style.bottom"/>
+      </div>
 
       <NuxtLink
         to="/"
@@ -64,6 +71,45 @@ body {
   min-width: 320px;
 }
 
+.icons {
+  position: relative;
+  width: 100%;
+  margin: 20px auto;
+  max-width: 280px;
+}
+
+.bottom,
+.top {
+  width: 100%;
+  height: auto;
+}
+
+.bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation-name: fade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: .08s;
+  animation-direction: alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .text {
   padding-top: 20px;
   color: $medium;
@@ -71,12 +117,6 @@ body {
 
 .content {
   text-align: center;
-}
-
-.image {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
 }
 
 .link {
