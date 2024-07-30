@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Profile from '~/components/Profile.vue';
+import Nav from '~/components/Nav.vue';
 
 export default {
   head() {
@@ -11,6 +12,7 @@ export default {
 
   components: {
     Profile,
+    Nav,
   },
 
   computed: {
@@ -24,13 +26,6 @@ export default {
         [this.$style.link_dark]: this.themeIsDark,
       }
     },
-
-    navClassNames() {
-      return {
-        [this.$style.nav]: true,
-        [this.$style.nav_dark]: this.themeIsDark,
-      }
-    },
   },
 };
 </script>
@@ -42,17 +37,14 @@ export default {
       :is-dark="themeIsDark"
     />
 
-    <h2 :class="$style.title">
-      Мы&nbsp;делаем здесь amazing customer service&nbsp;&copy;
-    </h2>
+    <Nav :is-dark="themeIsDark" />
 
-    <div :class="navClassNames">
+    <div :class="$style.text">
       # 404
     </div>
 
     <div :class="$style.content">
-      <img v-if="!themeIsDark" :class="$style.image" src="/img/404.gif" alt="">
-      <img v-else :class="$style.image" src="/img/404_dark.gif" alt="">
+      <img :class="$style.image" src="/img/404.gif" alt="">
 
       <NuxtLink
         to="/"
@@ -72,14 +64,9 @@ body {
   min-width: 320px;
 }
 
-.nav {
-  border-bottom: 2px solid $mild;
-  padding-bottom: 15px;
-
-  &_dark {
-    color: #FFFFFF;
-    border-color: $medium;
-  }
+.text {
+  padding-top: 20px;
+  color: $medium;
 }
 
 .content {
@@ -103,12 +90,5 @@ body {
   &_dark {
     color: $yellow;
   }
-}
-
-.title {
-  margin: 15px 0 0;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 500;
 }
 </style>

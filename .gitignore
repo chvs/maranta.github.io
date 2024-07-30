@@ -37,4 +37,6 @@ yarn-error.log
 # macOS
 .DS_Store
 
+temp.html
+
 # End of https://www.gitignore.io/api/vuejs,nuxtjs,visualstudiocode

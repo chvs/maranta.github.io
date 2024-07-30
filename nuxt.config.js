@@ -1,4 +1,4 @@
-const keywordsContent = 'ui/ux designer, illustrator, photographer, musician';
+const keywordsContent = 'design management, дизайн-менеджмент, менеджмент в it, топ-менеджмент';
 
 export default {
   ssr: false,
@@ -16,13 +16,13 @@ export default {
       { property: 'og:site_name', content: 'Maranta' },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:title', content: 'maranta' },
-      { property: 'og:description', content: 'Мы делаем здесь amazing customer service ©' },
+      { property: 'og:description', content: 'Мы делаем здесь amazing customer service (c)' },
       { hid: 'image', property: 'og:image', content: 'http://www.mrnt.org/img/share.png' },
       { hid: 'vk-image', property: 'vk:image', content: 'http://www.mrnt.org/img/share.png' },
       { hid: 'tw-image', property: 'tw:image', content: 'http://www.mrnt.org/img/share.png' },
       { hid: 'image-width', property: 'og:image:width', content: '1200' },
       { hid: 'image-height', property: 'og:image:height', content: '630' },
-      { hid: 'description', name: 'description', content: 'Мы делаем здесь amazing customer service ©' },
+      { hid: 'description', name: 'description', content: 'Мы делаем здесь amazing customer service (c)' },
       { hid: 'twitter-image', property: 'twitter:image', content: 'http://www.mrnt.org/img/share.png' },
       { hid: 'twitter-card', property: 'twitter:card', content: 'summary_large_image' },
       { hid: 'url', property: 'og:url', content: 'http://www.mrnt.org/' },
@@ -56,6 +56,10 @@ export default {
     hostname: 'https://www.mrnt.org',
     exclude: ['/404'],
     routes: [
+      'post/strategy',
+      'post/photo-7',
+      'post/culture',
+      'post/photo-6',
       'post/design',
       'post/photo-5',
       'post/matrix',
