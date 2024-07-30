@@ -48,8 +48,30 @@ export default {
 
   modules: [
     '@nuxtjs/gtm',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/sitemap' // always the last
   ],
+
+  sitemap: {
+    hostname: 'https://www.mrnt.org',
+    exclude: ['/404'],
+    routes: [
+      'post/design',
+      'post/photo-5',
+      'post/matrix',
+      'post/zone',
+      'post/photo-4',
+      'post/planning',
+      'post/photo-3',
+      'post/communication',
+      'post/photo-2',
+      'post/codex',
+      'post/photo-1',
+      'post/hr-crisis',
+      '/work',
+      '/photo',
+    ],
+  },
 
   gtm: {
     id: 'GTM-N2GPJJD',
