@@ -25,7 +25,19 @@ export default {
 
   head() {
     return {
-      title: this.data.title,
+      title: this.data.title?.replace(/&nbsp;|<br\s*\/?>/gi,' '),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.data.description,
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.data.keywords,
+        },
+      ],
     };
   },
 
@@ -124,7 +136,13 @@ export default {
         :key="index"
         :class="$style.tag"
       >
-        {{ item }}
+
+       <NuxtLink
+         :to="{ name: 'category', params: { category: item } }"
+         :class="$style.tag__link"
+        >
+          #{{ item }}
+        </NuxtLink>
       </li>
 
       <li v-if="readingTime">
@@ -150,15 +168,19 @@ export default {
 .list {
   color: $medium;
   display: flex;
-  padding: 15px 0;
+  padding: 20px 0 15px;
 }
 
 .tag {
   display: flex;
   margin-right: 6px;
 
-  &:before {
-    content: "#";
+  .tag__link {
+    color: $medium;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

@@ -39,7 +39,13 @@ export default {
       </li>
 
       <li v-for="(item, index) in data.tags" :key="index" :class="$style.tag">
-        {{ item }}
+        <template v-if="item === 'about'">
+          #{{ item }}
+        </template>
+
+        <NuxtLink v-else :to="item" :class="$style.tag__link">
+          #{{ item }}
+        </NuxtLink>
       </li>
 
       <li v-if="readingTime">
@@ -107,8 +113,12 @@ export default {
   display: flex;
   margin-right: 6px;
 
-  &:before {
-    content: "#";
+  .tag__link {
+    color: $medium;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

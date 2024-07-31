@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-  <div :class="$style.root">
+  <div>
     <div
       v-for="item in posts"
       :key="item.id"
@@ -42,10 +42,6 @@ export default {
 </template>
 
 <style lang="scss" module>
-.root {
-  padding-bottom: 60px;
-}
-
 .item {
   border-bottom: 2px solid $mild;
 
