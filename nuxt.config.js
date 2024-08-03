@@ -56,6 +56,7 @@ export default {
     hostname: 'https://www.mrnt.org',
     exclude: ['/404'],
     routes: [
+      'post/interview',
       'post/strategy',
       'post/photo-7',
       'post/culture',
