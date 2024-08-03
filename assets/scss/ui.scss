@@ -1,0 +1,34 @@
+@mixin ui-bull-list {
+  margin-bottom: 15px;
+  color: $medium;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      margin: 0 10px;
+      background-color: $medium;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    color: $medium!important;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

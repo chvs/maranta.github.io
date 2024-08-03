@@ -34,22 +34,26 @@ export default {
 <template>
   <div :class="$style.root">
     <ul v-if="data.tags.length" :class="$style.list">
-      <li v-if="data.date" :class="$style.date">
+      <li v-if="data.date" :class="$style.list__item">
         {{ data.date }}
       </li>
 
-      <li v-for="(item, index) in data.tags" :key="index" :class="$style.tag">
+      <li
+        v-for="(item, index) in data.tags"
+        :key="index"
+        :class="$style.list__item"
+      >
         <template v-if="item === 'about'">
           #{{ item }}
         </template>
 
-        <NuxtLink v-else :to="item" :class="$style.tag__link">
+        <NuxtLink v-else :to="item" :class="$style.list__link">
           #{{ item }}
         </NuxtLink>
       </li>
 
-      <li v-if="readingTime">
-        &bull; читать {{ readingTime }}
+      <li v-if="readingTime" :class="$style.list__item">
+        читать {{ readingTime }}
       </li>
     </ul>
 
@@ -104,36 +108,7 @@ export default {
 }
 
 .list {
-  margin-bottom: 15px;
-  color: $medium;
-  display: flex;
-}
-
-.tag {
-  display: flex;
-  margin-right: 6px;
-
-  .tag__link {
-    color: $medium;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-.date {
-  display: flex;
-  align-items: center;
-
-  &::after {
-    content: "";
-    height: 4px;
-    width: 4px;
-    border-radius: 50%;
-    margin: 0 10px;
-    background-color: $medium;
-  }
+  @include ui-bull-list;
 }
 
 .image {

@@ -91,7 +91,7 @@ body {
   animation-name: fade;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  animation-duration: .08s;
+  animation-duration: .1s;
   animation-direction: alternate;
 }
 

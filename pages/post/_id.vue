@@ -127,26 +127,26 @@ export default {
     <Nav :is-dark="themeIsDark" />
 
     <ul v-if="data.tags.length" :class="$style.list">
-      <li v-if="data.date" :class="$style.date">
+      <li v-if="data.date" :class="$style.list__item">
         {{ data.date }}
       </li>
 
       <li
         v-for="(item, index) in data.tags"
         :key="index"
-        :class="$style.tag"
+        :class="$style.list__item"
       >
 
        <NuxtLink
          :to="{ name: 'category', params: { category: item } }"
-         :class="$style.tag__link"
+         :class="$style.list__link"
         >
           #{{ item }}
         </NuxtLink>
       </li>
 
-      <li v-if="readingTime">
-        &bull; читать {{ readingTime }}
+      <li v-if="readingTime" :class="$style.list__item">
+        читать {{ readingTime }}
       </li>
     </ul>
 
@@ -166,45 +166,12 @@ export default {
 
 <style lang="scss" module>
 .list {
-  color: $medium;
-  display: flex;
-  padding: 20px 0 15px;
-}
-
-.tag {
-  display: flex;
-  margin-right: 6px;
-
-  .tag__link {
-    color: $medium;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-.date {
-  display: flex;
-  align-items: center;
-
-  &::after {
-    content: "";
-    height: 4px;
-    width: 4px;
-    border-radius: 50%;
-    margin: 0 10px;
-    background-color: $medium;
-  }
+  @include ui-bull-list;
+  margin-top: 20px;
 }
 
 .title {
   margin: 0 0 15px;
-}
-
-.time {
-  color: $medium;
-  margin-bottom: 20px;
 }
 
 .content {
