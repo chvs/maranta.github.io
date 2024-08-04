@@ -8,12 +8,11 @@ export default {
   head: {
     title: '@менеджментваду',
     meta: [
-      { lang: 'en' },
+      { lang: 'ru' },
       { charset: 'utf-8' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, minimum-scale=1' },
       { property: 'og:site_name', content: 'Maranta' },
-      { property: 'og:locale', content: 'en_US' },
       { property: 'og:title', content: 'maranta' },
       { property: 'og:description', content: 'Мы делаем здесь amazing customer service (c)' },
       { hid: 'keywords', name: 'keywords', content: keywordsContent },
@@ -80,7 +79,6 @@ export default {
 
   gtm: {
     id: 'GTM-N2GPJJD',
-    // enabled: true,
   },
 
   /*

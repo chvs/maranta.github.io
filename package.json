@@ -25,7 +25,6 @@
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/sitemap": "2.4.0",
     "@nuxtjs/style-resources": "1.2.1",
-    "dotenv": "8.2.0",
     "nuxt": "2.18.1"
   },
   "devDependencies": {

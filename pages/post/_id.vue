@@ -46,6 +46,7 @@ export default {
       items: POSTS,
       isButtonVisible: false,
       removeListeners: null,
+      links: []
     };
   },
 
@@ -106,9 +107,21 @@ export default {
       window.addEventListener('scroll', visibilityHandler);
       window.addEventListener('resize', visibilityHandler);
 
+      this.links = this.$refs.content.getElementsByTagName('a');
+
+      for (let i = 0; i < this.links.length; i++) {
+        this.links[i].addEventListener('click', this.navigate, false);
+      }
+
       this.removeListeners = () => {
         window.removeEventListener('scroll', visibilityHandler);
         window.removeEventListener('resize', visibilityHandler);
+
+        for (let i = 0; i < this.links.length; i++) {
+          this.links[i].removeEventListener('click', this.navigate, false);
+        }
+
+        this.links = [];
       };
     },
 
@@ -116,6 +129,17 @@ export default {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       this.isButtonVisible = scrollTop > (window.innerHeight / 2);
+    },
+
+
+     navigate(event) {
+      const href = event.target.getAttribute('href');
+      const target = event.target.getAttribute('target');
+
+      if (href && href[0] === '/' && target !== '_blank') {
+        event.preventDefault();
+        this.$router && this.$router.push(href);
+      }
     },
   },
 };
@@ -152,7 +176,7 @@ export default {
 
     <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
-    <div v-html="data.content" :class="contentClassNames" />
+    <div ref="content" v-html="data.content" :class="contentClassNames" />
 
     <footer :class="footerClassNames">
       <NuxtLink to="/">
