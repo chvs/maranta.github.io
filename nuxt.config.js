@@ -7,6 +7,9 @@ export default {
   */
   head: {
     title: '@менеджментваду',
+    htmlAttrs: {
+      lang: 'ru',
+    },
     meta: [
       { lang: 'ru' },
       { charset: 'utf-8' },

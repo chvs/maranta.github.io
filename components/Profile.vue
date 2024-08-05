@@ -63,6 +63,7 @@ export default {
     <NuxtLink
       v-if="isErrorPage"
       to="/"
+      aria-label="Перейти на главную страницу"
       :class="$style.logo"
     >
       <Logo404Dark v-if="isDark" />

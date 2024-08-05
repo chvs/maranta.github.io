@@ -43,6 +43,7 @@ export default {
   <div :class="$style.root">
     <button
       :class="btnClass"
+      aria-label="Переключить тему"
       @click="clickHandler"
     >
       <Icon v-if="!themeIsDark" />
