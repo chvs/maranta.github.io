@@ -18,7 +18,11 @@ export default {
       const time = this.data.time;
 
       return time ? `${time} ${declOfNum(time)}` : '';
-    }
+    },
+
+    imageHeight() {
+      return this.data.image.includes('gif') ? 320 : 720;
+    },
   },
 
   methods: {
@@ -59,16 +63,21 @@ export default {
 
     <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
-    <div v-if="data.image">
-      <img :src="data.image" :class="$style.image" alt="" />
-    </div>
+    <img
+      v-if="data.image"
+      :src="data.image"
+      :class="$style.image"
+      :height="imageHeight"
+      width="720"
+      alt=""
+    />
 
     <div v-else-if="data.video">
       <div :class="$style.videoWrap">
         <iframe
           :src="data.video"
           :class="$style.video"
-          frameborder="0"
+          title=""
         >
         </iframe>
       </div>
@@ -79,8 +88,7 @@ export default {
         <iframe
           :src="data.music"
           :class="$style.video"
-          scrolling="no"
-          frameborder="no"
+          title=""
         >
         </iframe>
       </div>
@@ -113,6 +121,7 @@ export default {
 
 .image {
   width: 100%;
+  height: auto;
   display: block;
   margin: 11px 0 15px;
 }

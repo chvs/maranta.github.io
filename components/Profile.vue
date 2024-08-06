@@ -62,9 +62,9 @@ export default {
   <div :class="rootClass">
     <NuxtLink
       v-if="isErrorPage"
+      :class="$style.logo"
       to="/"
       aria-label="Перейти на главную страницу"
-      :class="$style.logo"
     >
       <Logo404Dark v-if="isDark" />
       <Logo404 v-else />
@@ -72,8 +72,9 @@ export default {
 
     <NuxtLink
       v-else
-      to="/"
       :class="$style.logo"
+      to="/"
+      aria-label="Перейти на главную страницу"
     >
       <LogoDark v-if="isDark" />
       <Logo v-else />
@@ -94,6 +95,7 @@ export default {
           href="https://t.me/hell_management"
           target="_blank"
           rel=”noopener”
+          aria-label="Перейти в телеграм канал"
         >
           @менеджментваду
         </a>
