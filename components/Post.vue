@@ -141,7 +141,7 @@ export default {
 }
 
 .indented {
-  text-indent: 37px;
+  text-indent: 19px;
 }
 
 .link {
