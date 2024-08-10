@@ -14,6 +14,7 @@ export default {
   max-width: 760px;
   margin: 0 auto;
   padding: 20px 20px 0;
+  width: 100%;
 
   @media (max-width: 375px) {
     padding-left: 15px;

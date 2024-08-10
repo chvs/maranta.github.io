@@ -27,6 +27,10 @@ export default {
     <PageLayout>
       <nuxt slot="content" />
     </PageLayout>
+
+    <div :class="$style.footer">
+      Использовать материалы сайта можно только со&nbsp;ссылкой на&nbsp;источник. Спасибо&nbsp;🙂
+    </div>
   </div>
 </template>
 
@@ -120,6 +124,8 @@ iframe {
   background-color: #fff;
   color: $dark;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 
   a {
     color: $blue;
@@ -138,5 +144,12 @@ iframe {
       color: $yellow;
     }
   }
+}
+
+.footer {
+  color: $medium;
+  text-align: center;
+  padding: 0 20px 30px;
+  margin-top: auto;
 }
 </style>

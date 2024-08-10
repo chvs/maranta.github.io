@@ -86,7 +86,7 @@ export default {
 .footer {
   display: flex;
   justify-content: end;
-  padding: 15px 0 30px;
+  padding: 15px 0;
   border-top: 2px solid $mild;
 
   &_dark {
