@@ -185,7 +185,7 @@ const createPosts = [
     keywords: 'продуктовый дизайн, менеджмент, дизайн-менеджмент, процессы, дизайн-процесс, product design, management',
     date: 'aug 10, 2024',
     id: '20',
-    slug: 'prodict-design',
+    slug: 'product-design',
     time: 4,
     readMore: true,
     redStroke: true,
