@@ -6,7 +6,7 @@ const currentDir = dirname(fileURLToPath(import.meta.url));
 const keywordsContent = 'design management, дизайн-менеджмент, менеджмент в it, топ-менеджмент';
 
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
 
   css: [
     // '~/assets/scss/global.scss',
