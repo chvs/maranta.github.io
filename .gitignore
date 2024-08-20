@@ -9,10 +9,12 @@ node_modules
 # logs
 npm-debug.log
 
-# Nuxt build
+# Nuxt dev/build outputs
+.output
+.data
 .nuxt
-
-# Nuxt generate
+.nitro
+.cache
 dist
 
 ### VisualStudioCode ###
