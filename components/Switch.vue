@@ -1,53 +1,31 @@
-<script>
-import { mapGetters, mapActions } from 'vuex';
-import Icon from '~/static/svg/switch.svg';
-import IconDark from '~/static/svg/switch_dark.svg';
+<script setup>
+import Icon from '~/assets/images/switch.svg?component';
+import IconDark from '~/assets/images/switch_dark.svg?component';
 
-export default {
-  components: {
-    Icon,
-    IconDark,
-  },
 
-  computed: {
-    ...mapGetters({
-      themeIsDark: 'theme/themeIsDark',
-    }),
+const isThemeDark = useTheme();
 
-    btnClass() {
-      return {
-        [this.$style.btn]: true,
-        [this.$style.btn_dark]: this.themeIsDark,
-      };
-    },
-  },
+const style = useCssModule();
 
-  methods: {
-    ...mapActions({
-      setThemeLight: 'theme/setThemeLight',
-      setThemeDark: 'theme/setThemeDark',
-    }),
+const btnClassNames = computed(() => ({
+  [style.btn]: true,
+  [style.btn_dark]: isThemeDark.value,
+}));
 
-    clickHandler() {
-      if (this.themeIsDark) {
-        this.setThemeLight();
-      } else {
-        this.setThemeDark();
-      }
-    }
-  }
+const clickHandler = () => {
+  isThemeDark.value = !isThemeDark.value;
 };
 </script>
 
 <template>
   <div :class="$style.root">
     <button
-      :class="btnClass"
+      :class="btnClassNames"
       aria-label="Переключить тему"
       @click="clickHandler"
     >
-      <Icon v-if="!themeIsDark" />
-      <IconDark v-else />
+      <IconDark v-if="isThemeDark" />
+      <Icon v-else />
     </button>
   </div>
 </template>
@@ -70,12 +48,12 @@ export default {
   svg {
     width: 100%;
     height: 100%;
-    fill: $medium;
+    fill: var(--medium);
   }
 
   &:hover {
     svg {
-      fill: $dark;
+      fill: var(--dark);
     }
   }
 

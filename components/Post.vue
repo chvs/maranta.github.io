@@ -1,38 +1,28 @@
-<script>
+<script setup>
 import declOfNum from '~/utils/declOfNum';
 
-export default {
-  props: {
-    data: {
-      type: Object,
-      default: () => ({}),
-    },
+const props = defineProps({
+  data: {
+    type: Object,
+    default: () => ({}),
   },
+});
 
-  computed: {
-    postLink() {
-      return this.data.slug ? `post/${this.data.slug}` : `post/${this.data.id}`;
-    },
+const style = useCssModule();
 
-    readingTime() {
-      const time = this.data.time;
+const textClassNames = ((isIndented) => ({
+  [style.indented]: isIndented,
+}));
 
-      return time ? `${time} ${declOfNum(time)}` : '';
-    },
+const readingTime = computed(() => {
+  const time = props.data.time;
 
-    imageHeight() {
-      return this.data.image.includes('gif') ? 320 : 720;
-    },
-  },
+  return time ? `${time} ${declOfNum(time)}` : '';
+});
 
-  methods: {
-    textClassNames(isIndented) {
-      return {
-        [this.$style.indented]: isIndented,
-      };
-    },
-  },
-};
+const imageHeight = computed(() => props.data.image.includes('gif') ? 320 : 720);
+
+const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.data.id}`;
 </script>
 
 <template>
@@ -63,14 +53,15 @@ export default {
 
     <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
-    <img
+    <NuxtImg
       v-if="data.image"
       :src="data.image"
       :class="$style.image"
       :height="imageHeight"
+      loading="lazy"
       width="720"
       alt=""
-    />
+      />
 
     <div v-else-if="data.video">
       <div :class="$style.videoWrap">

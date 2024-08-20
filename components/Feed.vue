@@ -1,56 +1,39 @@
-<script>
-import Post from './Post.vue';
-
-export default {
-  components: {
-    Post,
+<script setup>
+defineProps({
+  posts: {
+    type: Array,
+    default: () => [],
   },
+});
 
-  props: {
-    isDark: {
-      type: Boolean,
-      default: false,
-    },
+const isThemeDark = useTheme();
 
-    posts: {
-      type: Array,
-      default: () => [],
-    },
-  },
+const style = useCssModule();
 
-  computed: {
-    itemClassNames() {
-      return {
-        [this.$style.item]: true,
-        [this.$style.item_dark]: this.isDark,
-      };
-    },
-  }
-}
+const itemClassNames = computed(() => ({
+  [style.item]: true,
+  [style.item_dark]: isThemeDark.value,
+}));
 </script>
 
 <template>
-  <div>
-    <div
-      v-for="item in posts"
-      :key="item.id"
-      :class="itemClassNames"
-    >
-      <Post :data="item" />
-    </div>
+  <div
+    v-for="item in posts"
+    :key="item.id"
+    :class="itemClassNames"
+  >
+    <Post :data="item" />
   </div>
 </template>
 
 <style lang="scss" module>
 .item {
-  border-bottom: 2px solid $mild;
-
-  &:last-child {
-    border-bottom: 0;
+  & + & {
+    border-top: 2px solid var(--mild);
   }
 
   &_dark {
-    border-color: $medium;
+    border-color: var(--medium);
   }
 }
 </style>

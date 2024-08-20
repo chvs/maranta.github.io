@@ -1,32 +1,21 @@
-<script>
-export default {
-  props: {
-    isDark: {
-      type: Boolean,
-      default: false,
-    },
-  },
+<script setup>
+const isThemeDark = useTheme();
 
-  computed: {
-    rootClass() {
-      return {
-        [this.$style.root]: true,
-        [this.$style.root_dark]: this.isDark,
-      };
-    },
-  },
+const style = useCssModule();
 
-  methods: {
-    scrollToTop() {
-      window.scrollTo(0,0);
-    },
-  },
-};
+const rootClassNames = computed(() => ({
+  [style.root]: true,
+  [style.root_dark]: isThemeDark.value,
+}));
+
+const scrollToTop = () => {
+  window.scrollTo(0,0);
+}
 </script>
 
 <template>
   <button
-    :class="rootClass"
+    :class="rootClassNames"
     aria-label="Вверх"
     @click="scrollToTop"
   >
@@ -39,14 +28,14 @@ export default {
   border: none;
   padding: 0;
   background-color: transparent;
-  color: $blue;
+  color: var(--blue);
   font-family: inherit;
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
 
   &_dark {
-    color: $yellow;
+    color: var(--yellow);
   }
 }
 </style>

@@ -1,76 +1,35 @@
-<script>
-import { mapGetters } from 'vuex';
-import Profile from '~/components/Profile.vue';
-import Nav from '~/components/Nav.vue';
-import IconTop from '~/assets/images/404_1.svg';
-import IconBottom from '~/assets/images/404_2.svg';
+<script setup>
+import IconTop from '~/assets/images/404_1.svg?component';
+import IconBottom from '~/assets/images/404_2.svg?component';
 
-export default {
-  head() {
-    return {
-      title: '404',
-    };
-  },
 
-  components: {
-    Profile,
-    Nav,
-    IconTop,
-    IconBottom
-  },
-
-  computed: {
-    ...mapGetters({
-      themeIsDark: 'theme/themeIsDark',
-    }),
-
-    linkClassNames() {
-      return {
-        [this.$style.link]: true,
-        [this.$style.link_dark]: this.themeIsDark,
-      }
-    },
-  },
-};
+useSeoMeta({
+  title: '404',
+});
 </script>
 
 <template>
-  <div>
-    <Profile
-      :is-error-page="true"
-      :is-dark="themeIsDark"
-    />
+  <Profile is-error-page />
 
-    <Nav :is-dark="themeIsDark" />
+  <Nav />
 
-    <div :class="$style.text">
-      # 404
+  <div :class="$style.text">
+    # 404
+  </div>
+
+  <div :class="$style.content">
+    <div :class="$style.icons">
+      <IconTop :class="$style.top"/>
+      <IconBottom :class="$style.bottom"/>
     </div>
 
-    <div :class="$style.content">
-      <div :class="$style.icons">
-        <IconTop :class="$style.top"/>
-        <IconBottom :class="$style.bottom"/>
-      </div>
-
-      <NuxtLink
-        to="/"
-        :class="linkClassNames"
-      >
-        Go home
-      </NuxtLink>
-    </div>
+    <NuxtLink to="/">
+      Go home
+    </NuxtLink>
   </div>
 </template>
 
 <style lang="scss" module>
-html,
-body {
-  min-height: 100%;
-  height: 100%;
-  min-width: 320px;
-}
-
 .icons {
   position: relative;
   width: 100%;
@@ -112,23 +71,10 @@ body {
 
 .text {
   padding-top: 20px;
-  color: $medium;
+  color: var(--medium);
 }
 
 .content {
   text-align: center;
-}
-
-.link {
-  color: $blue;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &_dark {
-    color: $yellow;
-  }
 }
 </style>

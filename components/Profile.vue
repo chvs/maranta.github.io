@@ -1,72 +1,36 @@
-<script>
-import Logo from '~/assets/images/logo.svg';
-import LogoDark from '~/assets/images/logo_dark.svg';
-import Logo404 from '~/assets/images/logo_404.svg';
-import Logo404Dark from '~/assets/images/logo_404_dark.svg';
-import Icon from '~/static/svg/switch.svg';
-import TelegramIcon from '~/assets/images/telegram.svg';
-import MastodonIcon from '~/assets/images/mastodon.svg';
-import SubsocialIcon from '~/assets/images/subsocial.svg';
-import LinkedinIcon from '~/assets/images/linkedin.svg';
-import OdyseeIcon from '~/assets/images/odysee.svg';
-import GithubIcon from '~/assets/images/github.svg';
-import SwitchBtn from './Switch.vue';
+<script setup>
+import Logo from '~/assets/images/logo.svg?component';
+import LogoDark from '~/assets/images/logo_dark.svg?component';
+import Logo404 from '~/assets/images/logo_404.svg?component';
+import Logo404Dark from '~/assets/images/logo_404_dark.svg?component';
 
-export default {
-  components: {
-    Logo,
-    LogoDark,
-    Logo404,
-    Logo404Dark,
-    Icon,
-    TelegramIcon,
-    MastodonIcon,
-    SubsocialIcon,
-    LinkedinIcon,
-    OdyseeIcon,
-    GithubIcon,
-    SwitchBtn,
+
+const props = defineProps({
+  isErrorPage: {
+    type: Boolean,
+    default: false,
   },
+});
 
-  props: {
-    isDark: {
-      type: Boolean,
-      default: false,
-    },
+const isThemeDark = useTheme();
 
-    isErrorPage: {
-      type: Boolean,
-      default: false,
-    },
-  },
+const style = useCssModule();
 
-  computed: {
-    rootClass() {
-      return {
-        [this.$style.root]: true,
-        [this.$style.root_dark]: this.isDark,
-      };
-    },
-
-    socialsClass() {
-      return {
-        [this.$style.socials]: true,
-        [this.$style.socials_dark]: this.isDark,
-      };
-    },
-  },
-};
+const rootClassNames = computed(() => ({
+  [style.root]: true,
+  [style.root_dark]: isThemeDark.value,
+}));
 </script>
 
 <template>
-  <div :class="rootClass">
+  <div :class="rootClassNames">
     <NuxtLink
       v-if="isErrorPage"
       :class="$style.logo"
       to="/"
       aria-label="Перейти на главную страницу"
     >
-      <Logo404Dark v-if="isDark" />
+      <Logo404Dark v-if="isThemeDark" />
       <Logo404 v-else />
     </NuxtLink>
 
@@ -76,7 +40,7 @@ export default {
       to="/"
       aria-label="Перейти на главную страницу"
     >
-      <LogoDark v-if="isDark" />
+      <LogoDark v-if="isThemeDark" />
       <Logo v-else />
     </NuxtLink>
 
@@ -168,24 +132,24 @@ export default {
           </li>
         </ul> -->
       </div>
-
     </div>
-    <SwitchBtn />
+
+    <Switch />
   </div>
 </template>
 
 <style lang="scss" module>
 .root {
   display: flex;
-  border-bottom: 2px solid $mild;
+  border-bottom: 2px solid var(--mild);
   padding-bottom: 14px;
 
   &_dark {
-    border-color: $medium;
+    border-color: var(--medium);
   }
 
   .caption {
-    color: $medium;
+    color: var(--medium);
   }
 }
 
@@ -233,13 +197,13 @@ export default {
   display: block;
 
   svg {
-    fill: $medium;
+    fill: var(--medium);
     display: block;
   }
 
   &:hover {
     svg path {
-      fill: $dark;
+      fill: var(--dark);
     }
   }
 }

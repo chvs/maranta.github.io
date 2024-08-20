@@ -1,33 +1,19 @@
-<script>
+<script setup>
 import TAGS from '~/constants/tags';
 
-export default {
-  data() {
-    return {
-      items: TAGS,
-    };
-  },
 
-  props: {
-    isDark: {
-      type: Boolean,
-      default: false,
-    },
-  },
+const isThemeDark = useTheme();
 
-  computed: {
-    rootClass() {
-      return {
-        [this.$style.root]: true,
-        [this.$style.root_dark]: this.isDark,
-      };
-    },
-  },
-};
+const style = useCssModule();
+
+const rootClassNames = computed(() => ({
+  [style.root]: true,
+  [style.root_dark]: isThemeDark.value,
+}));
 </script>
 
 <template>
-  <div :class="rootClass">
+  <div :class="rootClassNames">
     <h2 :class="$style.title">
       Мы&nbsp;делаем здесь amazing customer service (c)
     </h2>
@@ -56,7 +42,7 @@ export default {
       </li> -->
 
       <li
-        v-for="item in items"
+        v-for="item in TAGS"
         :key="item"
       >
         <NuxtLink
@@ -73,18 +59,18 @@ export default {
 
 <style lang="scss" module>
 .root {
-  border-bottom: 2px solid $mild;
+  border-bottom: 2px solid var(--mild);
   padding: 15px 0;
 
   &_dark {
-    border-color: $medium;
+    border-color: var(--medium);
 
     .link {
       color: #fff!important;
 
       &_active,
       &:hover {
-        color: $yellow!important;
+        color: var(--yellow)!important;
       }
     }
   }
@@ -98,7 +84,7 @@ export default {
 }
 
 .active {
-  color: $blue;
+  color: var(--blue);
 }
 
 .list {
@@ -109,15 +95,15 @@ export default {
 .link {
   display: flex;
   margin-right: 4px;
-  color: $dark!important;
+  color: var(--dark)!important;
 
   &:hover {
     text-decoration: none!important;
-    color: $blue!important;
+    color: var(--blue)!important;
   }
 
   &_active {
-    color: $blue!important;
+    color: var(--blue)!important;
   }
 
   &::before {
