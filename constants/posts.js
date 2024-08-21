@@ -2098,6 +2098,7 @@ const createPosts = [
     date: 'jul 6, 2024',
     id: '1',
     readMore: false,
+    redStroke: true,
   },
 ];
 
