@@ -31,15 +31,17 @@ definePageMeta({
   validate: ({ params }) => {
     const existingCategory = TAGS.find((link) => link === params.category);
 
-    if (existingCategory) {
-      return true;
+    if (!existingCategory) {
+      return navigateTo('/404');
     }
+
+    return true;
   }
 });
 </script>
 
 <template>
-  <div>
+  <div :class="$style.root">
     <Profile />
     <Nav />
     <Feed
@@ -47,7 +49,7 @@ definePageMeta({
       :posts="filteredPosts"
     />
 
-    <div v-else>
+    <div v-else >
       <p :class="$style.text">
         Coming soon
       </p>
@@ -59,18 +61,22 @@ definePageMeta({
         Go home
       </NuxtLink>
     </div>
-
-    <footer :class="footerClassNames">
-      <NuxtLink to="/">
-        Go home
-      </NuxtLink>
-
-      <ScrollTopButton v-show="isButtonVisible" />
-    </footer>
   </div>
+
+  <footer v-if="filteredPosts.length" :class="footerClassNames">
+    <NuxtLink to="/">
+      Go home
+    </NuxtLink>
+
+    <ScrollTopButton v-show="isButtonVisible" />
+  </footer>
 </template>
 
 <style lang="scss" module>
+.root {
+  flex: 1 0 auto;
+}
+
 .text {
   padding: 15px 0;
 }

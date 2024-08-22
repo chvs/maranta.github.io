@@ -9,7 +9,7 @@ definePageMeta({
     const existingPost = posts.find((item) => item.slug === params.id);
 
     if (!existingPost) {
-      return navigateTo('/');
+      return navigateTo('/404');
     }
 
     return true;
@@ -85,22 +85,21 @@ const readingTime = computed(() => {
     <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
     <div ref="content" v-html="data.content" :class="contentClassNames" />
-
-    <footer :class="footerClassNames">
-      <NuxtLink to="/">
-        Go home
-      </NuxtLink>
-
-      <ScrollTopButton v-show="isButtonVisible" />
-    </footer>
   </div>
+
+  <footer :class="footerClassNames">
+    <NuxtLink to="/">
+      Go home
+    </NuxtLink>
+
+    <ScrollTopButton v-show="isButtonVisible" />
+  </footer>
 </template>
 
 <style lang="scss" module>
 .root {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
 }
 
 .list {

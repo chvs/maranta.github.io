@@ -6,72 +6,32 @@ import IconBottom from '~/assets/images/404_2.svg?component';
 useSeoMeta({
   title: 'Егор пейдж',
 });
-
-const isThemeDark = useTheme();
-
-const style = useCssModule();
-
-const rootClass = computed(() => ({
-  [style.root]: true,
-  [style.root_dark]: isThemeDark.value,
-}));
 </script>
 
 <template>
-  <div :class="rootClass">
-    <div :class="$style.wrapper">
-      <Profile is-error-page />
+  <NuxtLayout>
+    <Profile is-error-page />
 
-      <Nav />
+    <Nav />
 
-      <div :class="$style.text">
-        Error
-      </div>
-
-      <div :class="$style.content">
-        <div :class="$style.icons">
-          <IconTop :class="$style.top"/>
-          <IconBottom :class="$style.bottom"/>
-        </div>
-
-        <NuxtLink to="/">
-          Go home
-        </NuxtLink>
-      </div>
-
-      <div :class="$style.footer">
-        Использовать материалы сайта можно только со&nbsp;ссылкой на&nbsp;источник. Спасибо&nbsp;🙂
-      </div>
+    <div :class="$style.text">
+      Error
     </div>
-  </div>
+
+    <div :class="$style.content">
+      <div :class="$style.icons">
+        <IconTop :class="$style.top"/>
+        <IconBottom :class="$style.bottom"/>
+      </div>
+
+      <NuxtLink to="/">
+        Go home
+      </NuxtLink>
+    </div>
+  </NuxtLayout>
 </template>
 
 <style lang="scss" module>
-.root {
-  background-color: #fff;
-  color: var(--dark);
-  min-height: 100%;
-  display: flex;
-
-  a {
-    color: var(--blue);
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  &_dark {
-    background-color: var(--dark);
-    color: #fff;
-
-    a {
-      color: var(--yellow);
-    }
-  }
-}
-
 .icons {
   position: relative;
   width: 100%;
@@ -118,21 +78,6 @@ const rootClass = computed(() => ({
 
 .content {
   text-align: center;
-}
-
-.wrapper {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 20px 20px 0;
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  @media (max-width: 375px) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
 }
 
 .footer {

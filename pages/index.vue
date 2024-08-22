@@ -15,19 +15,23 @@ const isButtonVisible = ref(true);
 </script>
 
 <template>
-  <div>
+  <div :class="$style.root">
     <Profile />
     <Nav />
 
     <Feed :posts="POSTS" />
-
-    <footer :class="footerClassNames">
-      <ScrollTopButton v-show="isButtonVisible" />
-    </footer>
   </div>
+
+  <footer :class="footerClassNames">
+    <ScrollTopButton v-show="isButtonVisible" />
+  </footer>
 </template>
 
 <style lang="scss" module>
+.root {
+  flex: 1 0 auto;
+}
+
 .footer {
   display: flex;
   justify-content: end;

@@ -12,10 +12,12 @@ const rootClass = computed(() => ({
 <template>
   <div :class="rootClass">
     <div :class="$style.content">
-      <slot />
+      <div :class="$style.wrapper">
+        <slot />
+      </div>
 
       <div :class="$style.footer">
-        Использовать материалы сайта можно только со&nbsp;ссылкой на&nbsp;источник. Спасибо&nbsp;🙂
+        Использовать материалы сайта можно со&nbsp;ссылкой на&nbsp;источник. Спасибо&nbsp;🙂.
       </div>
     </div>
   </div>
@@ -60,6 +62,12 @@ const rootClass = computed(() => ({
     padding-left: 15px;
     padding-right: 15px;
   }
+}
+
+.wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {
