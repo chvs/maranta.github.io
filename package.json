@@ -23,7 +23,7 @@
   "homepage": "https://github.com/chvs/maranta#readme",
   "dependencies": {
     "@nuxt/image": "1.7.0",
-    "@nuxtjs/sitemap": "6.0.0-beta.2",
+    "@nuxtjs/sitemap": "6.0.0-beta.4",
     "nuxt": "3.12.4"
   },
   "devDependencies": {
