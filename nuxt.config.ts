@@ -63,6 +63,7 @@ export default defineNuxtConfig({
   sitemap: {
     exclude: ['/404'],
     urls: [
+      '/post/photo-10',
       '/post/onboarding',
       '/post/photo-9',
       '/post/product-design',
