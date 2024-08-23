@@ -16,8 +16,6 @@ definePageMeta({
   }
 });
 
-const isButtonVisible = ref(true);
-
 const isThemeDark = useTheme();
 
 const style = useCssModule();
@@ -92,7 +90,7 @@ const readingTime = computed(() => {
       Go home
     </NuxtLink>
 
-    <ScrollTopButton v-show="isButtonVisible" />
+    <ScrollTopButton />
   </footer>
 </template>
 

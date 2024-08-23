@@ -10,8 +10,6 @@ const footerClassNames = computed(() => ({
   [style.footer]: true,
   [style.footer_dark]: isThemeDark.value,
 }));
-
-const isButtonVisible = ref(true);
 </script>
 
 <template>
@@ -23,7 +21,7 @@ const isButtonVisible = ref(true);
   </div>
 
   <footer :class="footerClassNames">
-    <ScrollTopButton v-show="isButtonVisible" />
+    <ScrollTopButton />
   </footer>
 </template>
 

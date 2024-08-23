@@ -53,6 +53,7 @@ export default defineNuxtConfig({
   modules: [
     '@zadigetvoltaire/nuxt-gtm',
     '@nuxt/image',
+    '@vueuse/nuxt',
     '@nuxtjs/sitemap',
   ],
 
@@ -61,7 +62,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/404'],
+    exclude: ['/404', '/manifest.json'],
     urls: [
       '/post/photo-10',
       '/post/onboarding',

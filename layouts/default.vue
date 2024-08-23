@@ -17,7 +17,7 @@ const rootClass = computed(() => ({
       </div>
 
       <div :class="$style.footer">
-        Использовать материалы сайта можно со&nbsp;ссылкой на&nbsp;источник. Спасибо&nbsp;🙂.
+        Использовать материалы сайта можно только со&nbsp;ссылкой на&nbsp;источник. Спасибо&nbsp;🙂.
       </div>
     </div>
   </div>
@@ -75,6 +75,6 @@ const rootClass = computed(() => ({
   text-align: center;
   padding-bottom: 30px;
   margin-top: auto;
-  letter-spacing: -0.1px;
+  letter-spacing: -0.2px;
 }
 </style>

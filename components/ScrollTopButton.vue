@@ -1,4 +1,5 @@
 <script setup>
+import { useWindowScroll } from '@vueuse/core';
 const isThemeDark = useTheme();
 
 const style = useCssModule();
@@ -11,10 +12,15 @@ const rootClassNames = computed(() => ({
 const scrollToTop = () => {
   window.scrollTo(0,0);
 }
+
+const { y } = useWindowScroll();
+
+const isVisible = computed(() => Number(y.value) > 200);
 </script>
 
 <template>
   <button
+    v-show="isVisible"
     :class="rootClassNames"
     aria-label="Вверх"
     @click="scrollToTop"

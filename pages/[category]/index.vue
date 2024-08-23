@@ -25,8 +25,6 @@ const footerClassNames = computed(() => ({
   [style.footer_dark]: isThemeDark.value,
 }));
 
-const isButtonVisible = ref(true);
-
 definePageMeta({
   validate: ({ params }) => {
     const existingCategory = TAGS.find((link) => link === params.category);
@@ -68,7 +66,7 @@ definePageMeta({
       Go home
     </NuxtLink>
 
-    <ScrollTopButton v-show="isButtonVisible" />
+    <ScrollTopButton />
   </footer>
 </template>
 
