@@ -20,7 +20,7 @@ const readingTime = computed(() => {
   return time ? `${time} ${declOfNum(time)}` : '';
 });
 
-const imageHeight = computed(() => props.data.image.includes('gif') ? 320 : 720);
+const isAnimated = props.data.image && props.data.image.includes('webp');
 
 const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.data.id}`;
 </script>
@@ -54,14 +54,23 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.dat
     <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
     <NuxtImg
-      v-if="data.image"
+      v-if="isAnimated"
       :src="data.image"
       :class="$style.image"
-      :height="imageHeight"
       loading="lazy"
+      height="320"
       width="720"
-      alt=""
-      />
+      :modifiers="{ animated: true }"
+    />
+
+    <NuxtImg
+      v-else-if="data.image"
+      :src="data.image"
+      :class="$style.image"
+      loading="lazy"
+      height="720"
+      width="720"
+    />
 
     <div v-else-if="data.video">
       <div :class="$style.videoWrap">
