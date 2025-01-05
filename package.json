@@ -32,5 +32,9 @@
     "cross-env": "7.0.3",
     "sass": "1.60.0",
     "vite-svg-loader": "5.1.0"
+  },
+  "overrides": {
+    "vue": "latest",
+    "vite": "5.4.11"
   }
 }
