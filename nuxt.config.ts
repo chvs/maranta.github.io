@@ -64,6 +64,8 @@ export default defineNuxtConfig({
   sitemap: {
     exclude: ['/404', '/manifest.json'],
     urls: [
+      '/post/romance',
+      '/post/photo-13',
       '/post/idontknow',
       '/post/photo-12',
       '/post/time',
