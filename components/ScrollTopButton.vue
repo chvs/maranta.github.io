@@ -10,7 +10,7 @@ const rootClassNames = computed(() => ({
 }));
 
 const scrollToTop = () => {
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 const { y } = useWindowScroll();
@@ -19,12 +19,7 @@ const isVisible = computed(() => Number(y.value) > 200);
 </script>
 
 <template>
-  <button
-    v-show="isVisible"
-    :class="rootClassNames"
-    aria-label="Вверх"
-    @click="scrollToTop"
-  >
+  <button v-show="isVisible" :class="rootClassNames" aria-label="Вверх" @click="scrollToTop">
     Up
   </button>
 </template>
@@ -37,7 +32,7 @@ const isVisible = computed(() => Number(y.value) > 200);
   color: var(--blue);
   font-family: inherit;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.5;
   cursor: pointer;
 
   &_dark {

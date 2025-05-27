@@ -20,12 +20,7 @@ const rootClassNames = computed(() => ({
 
     <ul :class="$style.list">
       <li>
-        <NuxtLink
-          to="/"
-          exact
-          :class="$style.link"
-          :activeClass="$style.link_active"
-        >
+        <NuxtLink to="/" exact :class="$style.link" :activeClass="$style.link_active">
           all
         </NuxtLink>
       </li>
@@ -41,15 +36,8 @@ const rootClassNames = computed(() => ({
         </NuxtLink>
       </li> -->
 
-      <li
-        v-for="item in TAGS"
-        :key="item"
-      >
-        <NuxtLink
-          :to="`/${item}`"
-          :class="$style.link"
-          :activeClass="$style.link_active"
-        >
+      <li v-for="item in TAGS" :key="item">
+        <NuxtLink :to="`/${item}`" :class="$style.link" :activeClass="$style.link_active">
           {{ item }}
         </NuxtLink>
       </li>
@@ -66,11 +54,11 @@ const rootClassNames = computed(() => ({
     border-color: var(--medium);
 
     .link {
-      color: #fff!important;
+      color: #fff !important;
 
       &_active,
       &:hover {
-        color: var(--yellow)!important;
+        color: var(--yellow) !important;
       }
     }
   }
@@ -79,7 +67,7 @@ const rootClassNames = computed(() => ({
 .title {
   margin: 0;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.5;
   font-weight: 500;
 }
 
@@ -95,15 +83,15 @@ const rootClassNames = computed(() => ({
 .link {
   display: flex;
   margin-right: 4px;
-  color: var(--dark)!important;
+  color: var(--dark) !important;
 
   &:hover {
-    text-decoration: none!important;
-    color: var(--blue)!important;
+    text-decoration: none !important;
+    color: var(--blue) !important;
   }
 
   &_active {
-    color: var(--blue)!important;
+    color: var(--blue) !important;
   }
 
   &::before {

@@ -24,22 +24,12 @@ const rootClassNames = computed(() => ({
 
 <template>
   <div :class="rootClassNames">
-    <NuxtLink
-      v-if="isErrorPage"
-      :class="$style.logo"
-      to="/"
-      aria-label="Перейти на главную страницу"
-    >
+    <NuxtLink v-if="isErrorPage" :class="$style.logo" to="/" aria-label="Перейти на главную страницу">
       <Logo404Dark v-if="isThemeDark" />
       <Logo404 v-else />
     </NuxtLink>
 
-    <NuxtLink
-      v-else
-      :class="$style.logo"
-      to="/"
-      aria-label="Перейти на главную страницу"
-    >
+    <NuxtLink v-else :class="$style.logo" to="/" aria-label="Перейти на главную страницу">
       <LogoDark v-if="isThemeDark" />
       <Logo v-else />
     </NuxtLink>
@@ -54,13 +44,8 @@ const rootClassNames = computed(() => ({
           where am I?
         </p>
 
-        <a v-else
-          :class="$style.caption"
-          href="https://t.me/hell_management"
-          target="_blank"
-          rel=”noopener”
-          aria-label="Перейти в телеграм канал"
-        >
+        <a v-else :class="$style.caption" href="https://t.me/hell_management" target="_blank" rel=”noopener”
+          aria-label="Перейти в телеграм канал">
           @менеджментваду
         </a>
 
@@ -163,7 +148,7 @@ const rootClassNames = computed(() => ({
 .title {
   margin: 3px 10px -3px 0;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.5;
   font-weight: 500;
 }
 

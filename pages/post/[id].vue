@@ -39,7 +39,7 @@ const data = computed(() => {
 });
 
 useSeoMeta({
-  title: data.value?.title?.replace(/&nbsp;|<br\s*\/?>/gi,' '),
+  title: data.value?.title?.replace(/&nbsp;|<br\s*\/?>/gi, ' '),
   description: data.value?.description,
   keywords: data.value?.keywords,
 });
@@ -61,16 +61,9 @@ const readingTime = computed(() => {
         {{ data.date }}
       </li>
 
-      <li
-        v-for="(item, index) in data.tags"
-        :key="index"
-        :class="$style.list__item"
-      >
+      <li v-for="(item, index) in data.tags" :key="index" :class="$style.list__item">
 
-       <NuxtLink
-         :to="{ name: 'category', params: { category: item } }"
-         :class="$style.list__link"
-        >
+        <NuxtLink :to="{ name: 'category', params: { category: item } }" :class="$style.list__link">
           #{{ item }}
         </NuxtLink>
       </li>
@@ -112,7 +105,7 @@ const readingTime = computed(() => {
 .content {
   h2 {
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.5;
     font-weight: 500;
     margin: 0 0 15px;
   }
@@ -128,7 +121,8 @@ const readingTime = computed(() => {
     margin-bottom: 15px;
   }
 
-  ul, ul > li {
+  ul,
+  ul>li {
     list-style: disc;
   }
 
@@ -174,7 +168,7 @@ const readingTime = computed(() => {
   padding: 20px;
   font-weight: 500;
   color: var(--dark);
-  text-indent: 0!important;
+  text-indent: 0 !important;
   text-align: center;
 }
 
