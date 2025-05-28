@@ -95,10 +95,12 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.dat
     </div>
 
     <p
-      v-if="data.text"
+      v-if="data.text && data.readMore"
       v-html="data.text"
       :class="textClassNames(data.redStroke)"
     />
+
+    <div v-else :class="$style.content" v-html="data.text" />
 
     <div v-if="data.readMore" :class="$style.link">
       <NuxtLink :to="postLink">read more...</NuxtLink>
@@ -148,5 +150,61 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.dat
   display: flex;
   justify-content: flex-end;
   padding-top: 12px;
+}
+
+.content {
+  h2 {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 0 0 15px;
+  }
+
+  p {
+    text-indent: 19px;
+    margin-bottom: 15px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  ul,
+  ul>li {
+    list-style: disc;
+  }
+
+  ul {
+    padding-left: 19px;
+    margin-bottom: 15px;
+  }
+
+  ol {
+    padding-left: 19px;
+    margin-bottom: 15px;
+  }
+
+  figure {
+    margin-bottom: 30px;
+  }
+
+  svg {
+    width: 20px;
+    height: 16px;
+    fill: var(--medium);
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 5px 0 0;
+  }
+
+  &_dark {
+
+    :global(.quote) {
+      background-color: var(--semidark);
+      color: var(--light);
+    }
+  }
 }
 </style>
