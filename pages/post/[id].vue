@@ -176,6 +176,11 @@ const readingTime = computed(() => {
   font-weight: 500;
 }
 
+:global(.border-top) {
+  border-top: 2px solid var(--mild);
+  padding-top: 15px;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
