@@ -176,7 +176,7 @@ const createPosts = [
     tags: ['photo'],
     image: '/img/prew_14.png',
     date: 'jul 4, 2025',
-    slug: 'photo-13',
+    slug: 'photo-14',
     content: `
       <figure>
         <img src="/img/ph_14_1.jpg" alt="">
