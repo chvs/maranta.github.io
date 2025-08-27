@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: '@менеджментваду',
+      title: 'MARANTA',
       htmlAttrs: {
         lang: 'ru',
       },
