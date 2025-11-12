@@ -85,7 +85,7 @@ const toggleSection = (index: number) => {
 
       <div :class="$style.header__info">
         <p>
-          <b>Наталья Маранта. Дизайн-менеджер и звукорежиссёр.</b>
+          <b>Наталья Маранта. Дизайн-менеджер.</b>
           <br>
           Здесь собран и&nbsp;описан опыт работы с&nbsp;минимумом картинок, чтобы не&nbsp;переполнить
           и&nbsp;окончательно не&nbsp;сломать интернет 😎.
@@ -654,6 +654,7 @@ const toggleSection = (index: number) => {
       background-color: var(--dark);
       border-radius: 50%;
       margin-right: 66px;
+      flex-shrink: 0;
 
       .root_dark & {
         background-color: var(--light);
@@ -711,6 +712,7 @@ const toggleSection = (index: number) => {
     height: 12px;
     width: 16px;
     font-weight: 500;
+    margin-left: 8px;
 
     &:after {
       position: absolute;
