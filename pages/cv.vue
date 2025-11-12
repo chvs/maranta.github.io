@@ -127,7 +127,7 @@ const toggleSection = (index: number) => {
             <div v-if="newArr[0]" :class="$style.box__content">
               <div :class="$style.box__caption">
                 <b>Стек:</b>
-                Taiga, Penpot, Obsidian
+                Jira, Confluence, Figma, Blender
               </div>
 
               <p :class="$style.box__text">
