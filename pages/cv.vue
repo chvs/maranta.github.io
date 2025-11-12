@@ -92,7 +92,7 @@ const toggleSection = (index: number) => {
         </p>
 
         <div :class="$style.header__actions">
-          <a :class="$style.header__link" href="https://t.me/mrnt_org" target="_blank" rel=”noopener”
+          <a :class="$style.header__link" href="https://t.me/n_maranta" target="_blank" rel=”noopener”
             aria-label="Перейти в телеграм канал">
             Написать в tg
           </a>
