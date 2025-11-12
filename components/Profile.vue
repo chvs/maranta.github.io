@@ -44,9 +44,9 @@ const rootClassNames = computed(() => ({
           where am I?
         </p>
 
-        <a v-else :class="$style.caption" href="https://t.me/mrnt_org" target="_blank" rel=”noopener”
+        <a v-else :class="$style.caption" href="https://t.me/n_maranta" target="_blank" rel=”noopener”
           aria-label="Перейти в телеграм канал">
-          @mrnt_org
+          @n_maranta
         </a>
 
         <!-- <ul v-else :class="socialsClass">

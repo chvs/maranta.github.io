@@ -22,7 +22,7 @@ const readingTime = computed(() => {
 
 const isAnimated = props.data.image && props.data.image.includes('webp');
 
-const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.data.id}`;
+const postLink = props.data.slug ? `post/${props.data.slug}` : `/${props.data.url}`;
 </script>
 
 <template>
@@ -32,11 +32,7 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.dat
         {{ data.date }}
       </li>
 
-      <li
-        v-for="(item, index) in data.tags"
-        :key="index"
-        :class="$style.list__item"
-      >
+      <li v-for="(item, index) in data.tags" :key="index" :class="$style.list__item">
         <template v-if="item === 'about'">
           #{{ item }}
         </template>
@@ -53,52 +49,26 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `post/${props.dat
 
     <h1 v-if="data.title" :class="$style.title" v-html="data.title" />
 
-    <NuxtImg
-      v-if="isAnimated"
-      :src="data.image"
-      :class="$style.image"
-      loading="lazy"
-      height="320"
-      width="720"
-      :modifiers="{ animated: true }"
-    />
+    <NuxtImg v-if="isAnimated" :src="data.image" :class="$style.image" loading="lazy" height="320" width="720"
+      :modifiers="{ animated: true }" />
 
-    <NuxtImg
-      v-else-if="data.image"
-      :src="data.image"
-      :class="$style.image"
-      loading="lazy"
-      height="720"
-      width="720"
-    />
+    <NuxtImg v-else-if="data.image" :src="data.image" :class="$style.image" loading="lazy" height="720" width="720" />
 
     <div v-else-if="data.video">
       <div :class="$style.videoWrap">
-        <iframe
-          :src="data.video"
-          :class="$style.video"
-          title=""
-        >
+        <iframe :src="data.video" :class="$style.video" title="">
         </iframe>
       </div>
     </div>
 
     <div v-else-if="data.music">
       <div :class="$style.videoWrap">
-        <iframe
-          :src="data.music"
-          :class="$style.video"
-          title=""
-        >
+        <iframe :src="data.music" :class="$style.video" title="">
         </iframe>
       </div>
     </div>
 
-    <p
-      v-if="data.text && data.readMore"
-      v-html="data.text"
-      :class="textClassNames(data.redStroke)"
-    />
+    <p v-if="data.text && data.readMore" v-html="data.text" :class="textClassNames(data.redStroke)" />
 
     <div v-else :class="$style.content" v-html="data.text" />
 

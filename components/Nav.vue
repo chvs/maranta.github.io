@@ -25,17 +25,6 @@ const rootClassNames = computed(() => ({
         </NuxtLink>
       </li>
 
-      <!-- <li>
-        <NuxtLink
-          to="/cv"
-          exact
-          :class="$style.link"
-          :activeClass="$style.link_active"
-        >
-          cv
-        </NuxtLink>
-      </li> -->
-
       <li v-for="item in TAGS" :key="item">
         <NuxtLink :to="`/${item}`" :class="$style.link" :activeClass="$style.link_active">
           {{ item }}
