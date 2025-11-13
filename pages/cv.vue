@@ -262,7 +262,7 @@ const toggleSection = (index: number) => {
               </p>
 
               <p :class="$style.box__text">
-                <b>Менеджмент:</b>
+                <b>Менеджмент: </b>
                 <NuxtLink to="/post/interview" target="_blank">набор команды</NuxtLink>,
                 запуск процессов с&nbsp;
                 <NuxtLink to="/post/planning" target="_blank">планированием</NuxtLink>,
