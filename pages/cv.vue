@@ -40,13 +40,9 @@ useSeoMeta({
 
 const newArr = ref(Array(9).fill(true));
 
-console.log(newArr.value);
-
-
 const toggleSection = (index: number) => {
   newArr.value[index] = !newArr.value[index];
 }
-
 </script>
 
 <template>
@@ -85,7 +81,7 @@ const toggleSection = (index: number) => {
 
       <div :class="$style.header__info">
         <p>
-          <b>Наталья Маранта. Дизайн-директор.</b>
+          <b>Наталья Маранта. Дизайн-менеджер.</b>
           <br>
           Здесь собран и&nbsp;описан опыт работы с&nbsp;минимумом картинок, чтобы не&nbsp;переполнить
           и&nbsp;окончательно не&nbsp;сломать интернет 😎.

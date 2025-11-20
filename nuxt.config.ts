@@ -51,7 +51,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@zadigetvoltaire/nuxt-gtm',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@nuxtjs/sitemap',
@@ -100,10 +99,6 @@ export default defineNuxtConfig({
       '/work',
       '/photo',
     ]
-  },
-
-  gtm: {
-    id: 'GTM-N2GPJJD',
   },
 
   imports: {
