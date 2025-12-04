@@ -33,11 +33,7 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `/${props.data.ur
       </li>
 
       <li v-for="(item, index) in data.tags" :key="index" :class="$style.list__item">
-        <template v-if="item === 'about'">
-          #{{ item }}
-        </template>
-
-        <NuxtLink v-else :to="item" :class="$style.list__link">
+        <NuxtLink :to="item" :class="$style.list__link">
           #{{ item }}
         </NuxtLink>
       </li>

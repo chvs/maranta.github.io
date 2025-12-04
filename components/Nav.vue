@@ -1,7 +1,6 @@
 <script setup>
 import TAGS from '~/constants/tags';
 
-
 const isThemeDark = useTheme();
 
 const style = useCssModule();
@@ -9,6 +8,13 @@ const style = useCssModule();
 const rootClassNames = computed(() => ({
   [style.root]: true,
   [style.root_dark]: isThemeDark.value,
+}));
+
+const route = useRoute();
+
+const linkClassNames = ((item) => ({
+  [style.link]: true,
+  [style.link_active]: item === 'about' && route.name === 'cv',
 }));
 </script>
 
@@ -26,7 +32,7 @@ const rootClassNames = computed(() => ({
       </li>
 
       <li v-for="item in TAGS" :key="item">
-        <NuxtLink :to="`/${item}`" :class="$style.link" :activeClass="$style.link_active">
+        <NuxtLink :to="`/${item}`" :class="linkClassNames(item)" :activeClass="$style.link_active">
           {{ item }}
         </NuxtLink>
       </li>

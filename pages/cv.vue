@@ -56,7 +56,7 @@ const toggleSection = (index: number) => {
       </li>
 
       <li :class="$style.list__item">
-        <NuxtLink to="/about" :class="$style.list__link">
+        <NuxtLink to="/about" :class="[$style.list__link, $style.list__link_accent]">
           #about
         </NuxtLink>
       </li>
@@ -106,6 +106,79 @@ const toggleSection = (index: number) => {
 </button> -->
         </div>
       </div>
+    </div>
+
+    <div :class="$style.about">
+
+      <ul :class="$style.about__list">
+        <li :class="$style.about__item">
+          <div>
+            <b :class="$style.about__title">Дизайн-менеджмент с&nbsp;активной ролью в&nbsp;бизнесе:</b>
+
+            <div :class="$style.about__block">
+              <b>Планирование дизайн-ресурсов</b> с&nbsp;ориентацией
+              на&nbsp;бизнес-стратегию. OKR на&nbsp;eё&nbsp;основе,
+              задачи направлены на&nbsp;достижение конкретных целей,
+              которые прозрачны и&nbsp;понятны бизнесу. Роль дизайна стратегическая,
+              понятная, прогнозируемая.
+            </div>
+
+            <div :class="$style.about__block">
+              <b>Запуск и&nbsp;лидирование процессов:</b> найм/увольнение
+              (онбординг/сопровождение), внутренняя коммуникация, мотивация,
+              обучение, проектирование матриц компетенций с&nbsp;учетом специфики
+              и&nbsp;локального контекста, оптимизация процессов,
+              повышение уровня продуктовой культуры и&nbsp;квалификации сотрудников.
+            </div>
+          </div>
+        </li>
+
+        <li :class="$style.about__item">
+          <div>
+            <b :class="$style.about__title">Команды:</b>
+
+            <div :class="$style.about__block">
+              <b>Дизайн всех направлений</b>&nbsp;&mdash; продукты, бренд,
+              коммуникация.&nbsp;30+&nbsp;человек (инхаус, аутстафф, аутсорс).
+            </div>
+          </div>
+        </li>
+
+        <li :class="$style.about__item">
+          <div>
+            <b :class="$style.about__title">Сферы деятельности:</b>
+
+            <div :class="$style.about__block">
+              <b>FinTech:</b> инвестиционные и&nbsp;кредитные платформы, платежные сервисы, виртуальные карты, CRM;<br>
+              <b>EdTech:</b> Образовательные платформы (LMS);<br>
+              <b>Telecom:</b> IP-телефония;<br>
+              <b>MedTech:</b> Медицинские/лабораторные информационные системы (МИС/ЛИС).
+            </div>
+          </div>
+        </li>
+
+        <li :class="$style.about__item">
+          <div>
+            <b :class="$style.about__title">Кейсы:</b>
+
+            <div :class="$style.about__block">
+              <b>Продукты</b> c Acquisition до 20+ млн. регистраций
+            </div>
+
+            <div :class="$style.about__block">
+              <b>Партнёрство</b> с крупнейшими банками РФ
+            </div>
+
+            <div :class="$style.about__block">
+              <b>Госзаказы</b>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <p :class="$style.about__warn">
+        * Ссылки в&nbsp;описании опыта ниже ведут на&nbsp;статьи на&nbsp;этом сайте
+      </p>
     </div>
 
     <div>
@@ -551,9 +624,79 @@ const toggleSection = (index: number) => {
   }
 }
 
+.about {
+  border-top: 2px solid var(--mild);
+  padding: 28px 0;
+
+  &__title {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__list {
+    padding-left: 66px;
+
+    @media (max-width: 575px) {
+      padding-left: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: start;
+
+    &::before {
+      content: '';
+      height: 8px;
+      width: 8px;
+      background-color: var(--dark);
+      border-radius: 50%;
+      margin-right: 66px;
+      flex-shrink: 0;
+      margin-top: 10px;
+
+      .root_dark & {
+        background-color: var(--light);
+      }
+
+      @media (max-width: 575px) {
+        margin-right: 32px;
+      }
+    }
+  }
+
+  &__block {
+    margin-bottom: 15px;
+  }
+
+  &__warn {
+    color: var(--blue);
+    font-weight: 500;
+    padding-left: 140px;
+
+    .root_dark & {
+      color: var(--yellow);
+    }
+
+    @media (max-width: 575px) {
+      padding-left: 60px;
+    }
+  }
+}
+
 .list {
   @include ui-bull-list;
   margin-top: 20px;
+
+  &__link_accent {
+    color: var(--blue) !important;
+  }
+
+  .root_dark & {
+    &__link_accent {
+      color: var(--yellow) !important;
+    }
+  }
 }
 
 .header {
