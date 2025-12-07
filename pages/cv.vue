@@ -38,7 +38,7 @@ useSeoMeta({
   title: 'cv',
 });
 
-const newArr = ref(Array(9).fill(true));
+const newArr = ref(Array(9).fill(false));
 
 const toggleSection = (index: number) => {
   newArr.value[index] = !newArr.value[index];
@@ -109,75 +109,109 @@ const toggleSection = (index: number) => {
     </div>
 
     <div :class="$style.about">
+      <div :class="$style.about__header">
+        <a href="/CV_Design_Director_N_Maranta.pdf" download :class="$style.link">Скачать CV в .pdf</a>
+
+        <b :class="$style.about__title">Опыт кратко:</b>
+      </div>
 
       <ul :class="$style.about__list">
         <li :class="$style.about__item">
           <div>
-            <b :class="$style.about__title">Дизайн-менеджмент с&nbsp;активной ролью в&nbsp;бизнесе:</b>
-
             <div :class="$style.about__block">
-              <b>Планирование дизайн-ресурсов</b> с&nbsp;ориентацией
-              на&nbsp;бизнес-стратегию. OKR на&nbsp;eё&nbsp;основе,
-              задачи направлены на&nbsp;достижение конкретных целей,
-              которые прозрачны и&nbsp;понятны бизнесу. Роль дизайна стратегическая,
-              понятная, прогнозируемая.
-            </div>
-
-            <div :class="$style.about__block">
-              <b>Запуск и&nbsp;лидирование процессов:</b> найм/увольнение
-              (онбординг/сопровождение), внутренняя коммуникация, мотивация,
-              обучение, проектирование матриц компетенций с&nbsp;учетом специфики
-              и&nbsp;локального контекста, оптимизация процессов,
-              повышение уровня продуктовой культуры и&nbsp;квалификации сотрудников.
+              <b>Процессы:</b> найм/увольнение (онбординг/сопровождение), внутренняя коммуникация, мотивация, обучение,
+              проектирование матриц компетенций с&nbsp;учетом специфики бизнеса, оптимизация процессов, повышение уровня
+              продуктовой культуры и&nbsp;квалификации сотрудников.
             </div>
           </div>
         </li>
 
         <li :class="$style.about__item">
           <div>
-            <b :class="$style.about__title">Команды:</b>
-
             <div :class="$style.about__block">
-              <b>Дизайн всех направлений</b>&nbsp;&mdash; продукты, бренд,
-              коммуникация.&nbsp;30+&nbsp;человек (инхаус, аутстафф, аутсорс).
+              <b>Команды всех направлений&nbsp;&mdash;</b> продукты, бренд, коммуникация.<b>&nbsp;30+&nbsp;человек</b>
+              (инхаус,
+              аутстафф, аутсорс).
             </div>
           </div>
         </li>
 
         <li :class="$style.about__item">
           <div>
-            <b :class="$style.about__title">Сферы деятельности:</b>
+
 
             <div :class="$style.about__block">
-              <b>FinTech:</b> инвестиционные и&nbsp;кредитные платформы, платежные сервисы, виртуальные карты, CRM;<br>
-              <b>EdTech:</b> Образовательные платформы (LMS);<br>
-              <b>Telecom:</b> IP-телефония;<br>
-              <b>MedTech:</b> Медицинские/лабораторные информационные системы (МИС/ЛИС).
+              <b>FinTech:</b> инвестиционные и&nbsp;кредитные продукты, платежные сервисы, виртуальные карты, CRM<br>
+              <b>EdTech:</b> Образовательные платформы (LMS)<br>
+              <b>Telecom:</b> IP-телефония<br>
+              <b>MedTech:</b> Медицинские/лабораторные информационные системы (МИС/ЛИС)
             </div>
           </div>
         </li>
 
         <li :class="$style.about__item">
           <div>
-            <b :class="$style.about__title">Кейсы:</b>
-
             <div :class="$style.about__block">
-              <b>Продукты</b> c Acquisition до 20+ млн. регистраций
-            </div>
-
-            <div :class="$style.about__block">
-              <b>Партнёрство</b> с крупнейшими банками РФ
-            </div>
-
-            <div :class="$style.about__block">
-              <b>Госзаказы</b>
+              <b>Продуктовые кейсы c&nbsp;Acquisition 20+&nbsp;млн. регистраций</b>, партнёрство с&nbsp;крупнейшими
+              банками
+              и&nbsp;маркетплейсами&nbsp;РФ
             </div>
           </div>
         </li>
       </ul>
 
-      <p :class="$style.about__warn">
-        * Ссылки в&nbsp;описании опыта ниже ведут на&nbsp;статьи на&nbsp;этом сайте
+      <div :class="[$style.about__header, $style.about__divider]">
+        <b :class="$style.about__title">
+          Последние несколько лет руководила дизайном в&nbsp;компаниях Робофинанс (FinTech),
+          Моско (EdTech и&nbsp;сервис аренды) и&nbsp;т.д.
+        </b>
+      </div>
+
+      <ul :class="$style.about__list">
+        <li :class="$style.about__item">
+          <div>
+            <div :class="$style.about__block">
+              <b>Робофинанс 2021-2023: банкинг/кредитные продукты.</b><br>
+              &mdash;&nbsp;Ввела продуктовый подход (дизайн на&nbsp;основе данных)<br>
+              &mdash;&nbsp;Донабрала и&nbsp;разделила команды по&nbsp;направлениям (продуктовый, коммуникационный
+              дизайн)<br>
+              &mdash;&nbsp;Построила матрицу компетенций с&nbsp;учетом специфики бизнеса<br>
+              &mdash;&nbsp;Ввела процесс обучения в&nbsp;связке с&nbsp;индивидуальными планами развития, матрицей
+              компетенций
+              и&nbsp;целями по&nbsp;ОКР<br>
+              &mdash;&nbsp;Построила процесс коммуникации со&nbsp;смежными командами<br>
+              &mdash;&nbsp;Спроектировали несколько продуктов с&nbsp;нуля до&nbsp;релиза<br>
+              &mdash;&nbsp;Каждый квартал 21-23 годов по&nbsp;всем метрикам показывал рост. Мы&nbsp;справились
+              🙂.
+            </div>
+          </div>
+        </li>
+
+        <li :class="$style.about__item">
+          <div>
+            <div :class="$style.about__block">
+              <b>Моско 2024-2025: CRM для психологов, сервис аренды.</b><br>
+              &mdash;&nbsp;Набрала команду с&nbsp;нуля<br>
+              &mdash;&nbsp;Посчитали юнит-экономику и&nbsp;полностью спроектировали продуктовую стратегию, бренд
+              и&nbsp;дизайн-стратегию
+              на&nbsp;срок разработки.<br>
+              &mdash;&nbsp;Ввела процесс сквозного планирования<br>
+              &mdash;&nbsp;Сэкономили половину бюджета за&nbsp;счёт замещения&nbsp;ПО и&nbsp;внедрения AI-инструментов
+            </div>
+          </div>
+        </li>
+
+        <li :class="$style.about__item">
+          <div>
+            <div :class="$style.about__block">
+              <b>До&nbsp;этого руководила дизайном в&nbsp;заказной продуктовой разработке (EdTech и&nbsp;Telecom).</b>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <p id="portfolio" :class="$style.about__warn">
+        * Более подробно с картинками и статьями:
       </p>
     </div>
 
@@ -211,6 +245,16 @@ const toggleSection = (index: number) => {
               </p>
 
               <div>
+                <p :class="$style.box__text">
+                  &mdash;&nbsp;Собрала команду<br>
+                  &mdash;&nbsp;Завела все процессы с&nbsp;аджайлом и&nbsp;планированием<br>
+                  &mdash;&nbsp;Спроектировали 2&nbsp;продукта (CRM для психологических консультаций и&nbsp;сервис аренды
+                  без посредников)
+                  в&nbsp;минимальные сроки<br>
+                  &mdash;&nbsp;Сэкономили бюджет за&nbsp;счёт замещения&nbsp;ПО и&nbsp;внедрения
+                  AI-инструментов.
+                </p>
+
                 <b>
                   Сервис аренды
                 </b>
@@ -249,6 +293,13 @@ const toggleSection = (index: number) => {
                 <NuxtLink to="/post/product-design" target="_blank">продуктового подхода</NuxtLink>,
                 <NuxtLink to="/post/matrix" target="_blank">развитие компетенций</NuxtLink>
                 и т.п.
+              </p>
+
+              <p :class="$style.box__text">
+                &mdash;&nbsp;Продуктовые кейсы c&nbsp;Acquisition 20+&nbsp;млн. регистраций (Займер)<br>
+                &mdash;&nbsp;Партнёрство с&nbsp;крупнейшими банками и&nbsp;маркетплейсами&nbsp;РФ<br>
+                &mdash;&nbsp;Запуск кредитного продукта &laquo;А-деньги&raquo; с&nbsp;выполненной целью выдач
+                в&nbsp;1&nbsp;млрд. рублей меньше, чем за&nbsp;год после старта.
               </p>
 
               <div>
@@ -296,7 +347,7 @@ const toggleSection = (index: number) => {
 
               <img :class="$style.box__image" src="/assets/cv/20-21_SMB_g.gif" height="408" width="580" alt="">
 
-              <div :class="$style.box__duo">
+              <!-- <div :class="$style.box__duo">
                 <div>
                   <img :class="$style.box__image" src="/assets/cv/20-21_FOM_g.gif" height="192" width="288" alt="">
                 </div>
@@ -305,7 +356,7 @@ const toggleSection = (index: number) => {
                   <img :class="$style.box__image" src="/assets/cv/20-21_FOM-human_g.gif" height="192" width="288"
                     alt="">
                 </div>
-              </div>
+              </div> -->
             </div>
           </Transition>
         </li>
@@ -339,6 +390,10 @@ const toggleSection = (index: number) => {
                 дизайн-ревью и&nbsp;прочим.
               </p>
 
+              <p :class="$style.box__text">
+                Проектирование LMS и&nbsp;интерфейса IP-телефонии с&nbsp;нуля.
+              </p>
+
               <div>
                 <b>
                   Интерфейс образовательной платформы.
@@ -346,7 +401,7 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__image" src="/assets/cv/16-20_educat_g.gif" height="308" width="580" alt="">
-
+              <!--
               <div :class="$style.box__subtitle">
                 <b>Инфопартнёрство отраслевых мероприятий и&nbsp;прочего:</b>
               </div>
@@ -361,7 +416,7 @@ const toggleSection = (index: number) => {
                   <img :class="[$style.box__image, $style.box__image_bordered]" src="/assets/cv/16-20_WC_w.webp"
                     height="192" width="288" alt="">
                 </div>
-              </div>
+              </div> -->
             </div>
           </Transition>
         </li>
@@ -455,6 +510,12 @@ const toggleSection = (index: number) => {
                 Сайты, CRM, SEO
               </p>
 
+
+              <p :class="$style.box__text">
+                Проектировали МИС с&nbsp;нуля до&nbsp;готового программного решения. Продукт обеспечивал полное
+                информационное сопровождение деятельности частных клиник.
+              </p>
+
               <div>
                 <b>
                   Медицинская информационная система для клиник.
@@ -463,13 +524,13 @@ const toggleSection = (index: number) => {
 
               <img :class="$style.box__image" src="/assets/cv/9-12_MIS_w.webp" height="503" width="580" alt="">
 
-              <div :class="$style.box__subtitle">
+              <!-- <div :class="$style.box__subtitle">
                 <b>
                   Технический дизайн/иллюстрация
                 </b>
               </div>
 
-              <img :class="$style.box__image" src="/assets/cv/9-12_Ill.png" height="318" width="580" alt="">
+              <img :class="$style.box__image" src="/assets/cv/9-12_Ill.png" height="318" width="580" alt=""> -->
             </div>
           </Transition>
         </li>
@@ -504,13 +565,13 @@ const toggleSection = (index: number) => {
 
               <img :class="$style.box__image" src="/assets/cv/7-8_DV.png" height="505" width="580" alt="">
 
-              <div :class="$style.box__subtitle">
+              <!-- <div :class="$style.box__subtitle">
                 <b>
                   Иллюстрация
                 </b>
               </div>
 
-              <img :class="$style.box__image" src="/assets/cv/7-8_Ill.png" height="288" width="580" alt="">
+              <img :class="$style.box__image" src="/assets/cv/7-8_Ill.png" height="288" width="580" alt=""> -->
             </div>
           </Transition>
         </li>
@@ -520,13 +581,13 @@ const toggleSection = (index: number) => {
             <div :class="$style.box__title">2005&nbsp;&mdash; 2006&nbsp;/ Личный блог
             </div>
 
-            <button :class="buttonClassNames(7)" type="button" @click="toggleSection(7)">
+            <button :class="buttonClassNames(8)" type="button" @click="toggleSection(8)">
               <Arrow :class="$style.box__icon" height="10" width="16" />
             </button>
           </div>
 
           <Transition name="fade">
-            <div v-if="newArr[7]" :class="$style.box__content">
+            <div v-if="newArr[8]" :class="$style.box__content">
               <div :class="$style.box__caption">
                 <b>Стек:</b>
                 Adobe, Macromedia Flash, Actionscript
@@ -557,13 +618,13 @@ const toggleSection = (index: number) => {
           <div :class="$style.box__description">
             <div :class="$style.box__title">2001&nbsp;&mdash; 2022&nbsp;/ Училась&nbsp;/ Учила</div>
 
-            <button :class="buttonClassNames(8)" type="button" @click="toggleSection(8)">
+            <button :class="buttonClassNames(9)" type="button" @click="toggleSection(9)">
               <Arrow :class="$style.box__icon" height="10" width="16" />
             </button>
           </div>
 
           <Transition name="fade">
-            <div v-if="newArr[8]" :class="$style.box__content">
+            <div v-if="newArr[9]" :class="$style.box__content">
               <div>
                 <b>
                   Учила:
@@ -626,7 +687,25 @@ const toggleSection = (index: number) => {
 
 .about {
   border-top: 2px solid var(--mild);
-  padding: 28px 0;
+  padding: 25px 0 28px;
+
+  &__header {
+    padding-left: 140px;
+
+    @media (max-width: 575px) {
+      padding-left: 60px;
+    }
+  }
+
+  &__divider {
+    border-top: 2px solid var(--mild);
+    padding-top: 28px;
+    margin-top: 13px;
+
+    .root_dark & {
+      border-color: var(--medium);
+    }
+  }
 
   &__title {
     display: block;
@@ -673,6 +752,7 @@ const toggleSection = (index: number) => {
     color: var(--blue);
     font-weight: 500;
     padding-left: 140px;
+    padding-top: 10px;
 
     .root_dark & {
       color: var(--yellow);
@@ -772,6 +852,13 @@ const toggleSection = (index: number) => {
     justify-content: space-between;
     padding-right: 25px;
   }
+}
+
+.link {
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 15px;
 }
 
 .feed {

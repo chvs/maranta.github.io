@@ -31,8 +31,6 @@ export default defineNuxtConfig({
         { hid: 'image', property: 'og:image', content: 'http://www.mrnt.org/img/share.png' },
         { hid: 'vk-image', property: 'vk:image', content: 'http://www.mrnt.org/img/share.png' },
         { hid: 'tw-image', property: 'tw:image', content: 'http://www.mrnt.org/img/share.png' },
-        { hid: 'image-width', property: 'og:image:width', content: '1200' },
-        { hid: 'image-height', property: 'og:image:height', content: '630' },
         { hid: 'description', name: 'description', content: 'Мы делаем здесь amazing customer service (c)' },
         { hid: 'twitter-image', property: 'twitter:image', content: 'http://www.mrnt.org/img/share.png' },
         { hid: 'twitter-card', property: 'twitter:card', content: 'summary_large_image' },
