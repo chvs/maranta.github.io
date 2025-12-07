@@ -138,7 +138,7 @@ const toggleSection = (index: number) => {
 
         <li :class="$style.about__item">
           <div>
-
+            <b :class="$style.about__title">Сферы деятельности:</b>
 
             <div :class="$style.about__block">
               <b>FinTech:</b> инвестиционные и&nbsp;кредитные продукты, платежные сервисы, виртуальные карты, CRM<br>
