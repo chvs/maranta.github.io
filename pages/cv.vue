@@ -38,7 +38,7 @@ useSeoMeta({
   title: 'cv',
 });
 
-const newArr = ref(Array(9).fill(false));
+const newArr = ref(Array(3).fill(false));
 
 const toggleSection = (index: number) => {
   newArr.value[index] = !newArr.value[index];
@@ -219,7 +219,7 @@ const toggleSection = (index: number) => {
       <ul :class="$style.feed">
         <li>
           <div :class="$style.box__description">
-            <div :class="$style.box__title">2024&nbsp;&mdash; 2025&nbsp;/ Mosqo</div>
+            <div :class="$style.box__title">2016 &mdash; 2025 / Руководила</div>
 
             <button :class="buttonClassNames(0)" type="button" @click="toggleSection(0)">
               <Arrow :class="$style.box__icon" height="10" width="16" />
@@ -228,10 +228,7 @@ const toggleSection = (index: number) => {
 
           <Transition name="fade">
             <div v-if="newArr[0]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Jira, Confluence, Figma, Blender
-              </div>
+              <div :class="$style.box__head">2024&nbsp;&mdash; 2025&nbsp;/ Mosqo</div>
 
               <p :class="$style.box__text">
                 CRM, образовательные продукты, сервис аренды
@@ -261,25 +258,10 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__image" src="/assets/cv/24-25_Mosqo_g.gif" height="408" width="580" alt="">
-            </div>
-          </Transition>
-        </li>
 
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2021&nbsp;&mdash; 2023&nbsp;/ Robofinance</div>
+              <div :class="$style.divider" />
 
-            <button :class="buttonClassNames(1)" type="button" @click="toggleSection(1)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[1]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Jira, Confluence, Figma, Blender
-              </div>
+              <div :class="$style.box__head">2021&nbsp;&mdash; 2023&nbsp;/ Robofinance</div>
 
               <p :class="$style.box__text">
                 Финтех: банкинг, кредитные продукты всех возможных разновидностей, CRM.
@@ -309,73 +291,9 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__image" src="/assets/cv/21-23_robo_g.gif" height="408" width="580" alt="">
-            </div>
-          </Transition>
-        </li>
+              <div :class="$style.divider" />
 
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2020&nbsp;&mdash; 2021&nbsp;/ ФОМ</div>
-
-            <button :class="buttonClassNames(2)" type="button" @click="toggleSection(2)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[2]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Jira, Confluence, Figma, Blender
-              </div>
-
-              <p :class="$style.box__text">
-                СМИ, социологические исследования, аналитика, научные коммуникации.
-              </p>
-
-              <p :class="$style.box__text">
-                <b>Менеджмент: </b>
-                <NuxtLink to="/post/strategy" target="_blank">оптимизация процессов</NuxtLink>
-                с&nbsp;учетом специфики компании и&nbsp;перехода на&nbsp;удаленку.
-              </p>
-
-              <div>
-                <b>
-                  Тематический портал
-                </b>
-              </div>
-
-              <img :class="$style.box__image" src="/assets/cv/20-21_SMB_g.gif" height="408" width="580" alt="">
-
-              <!-- <div :class="$style.box__duo">
-                <div>
-                  <img :class="$style.box__image" src="/assets/cv/20-21_FOM_g.gif" height="192" width="288" alt="">
-                </div>
-
-                <div>
-                  <img :class="$style.box__image" src="/assets/cv/20-21_FOM-human_g.gif" height="192" width="288"
-                    alt="">
-                </div>
-              </div> -->
-            </div>
-          </Transition>
-        </li>
-
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2016&nbsp;&mdash; 2020&nbsp;/ Amviser</div>
-
-            <button :class="buttonClassNames(3)" type="button" @click="toggleSection(3)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[3]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Jira, Confluence, Sketch, Figma, Zeplin, Adobe
-              </div>
+              <div :class="$style.box__head">2016&nbsp;&mdash; 2020&nbsp;/ Amviser</div>
 
               <p :class="$style.box__text">
                 Разработка программных и&nbsp;веб-решений.
@@ -400,42 +318,24 @@ const toggleSection = (index: number) => {
                 </b>
               </div>
 
-              <img :class="$style.box__image" src="/assets/cv/16-20_educat_g.gif" height="308" width="580" alt="">
-              <!--
-              <div :class="$style.box__subtitle">
-                <b>Инфопартнёрство отраслевых мероприятий и&nbsp;прочего:</b>
-              </div>
-
-              <div :class="$style.box__duo">
-                <div>
-                  <img :class="[$style.box__image, $style.box__image_bordered]" src="/assets/cv/16-20 confa_g.gif"
-                    height="192" width="288" alt="">
-                </div>
-
-                <div>
-                  <img :class="[$style.box__image, $style.box__image_bordered]" src="/assets/cv/16-20_WC_w.webp"
-                    height="192" width="288" alt="">
-                </div>
-              </div> -->
+              <img :class="[$style.box__image, $style.box__image_last]" src="/assets/cv/16-20_educat_g.gif" height="308"
+                width="580" alt="">
             </div>
           </Transition>
         </li>
 
         <li>
           <div :class="$style.box__description">
-            <div :class="$style.box__title">2013&nbsp;&mdash; 2015&nbsp;/ Intelsib</div>
+            <div :class="$style.box__title">2006 &mdash; 2015 / Дизайнила</div>
 
-            <button :class="buttonClassNames(4)" type="button" @click="toggleSection(4)">
+            <button :class="buttonClassNames(1)" type="button" @click="toggleSection(1)">
               <Arrow :class="$style.box__icon" height="10" width="16" />
             </button>
           </div>
 
           <Transition name="fade">
-            <div v-if="newArr[4]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Adobe, Softimage XSI, Jira, Confluence
-              </div>
+            <div v-if="newArr[1]" :class="$style.box__content">
+              <div :class="$style.box__head">2013&nbsp;&mdash; 2015&nbsp;/ Intelsib</div>
 
               <p :class="$style.box__text">
                 Корпоративные сайты, интернет-магазины, CRM, много аналитики и&nbsp;поисковой оптимизации.
@@ -454,25 +354,9 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__image" src="/assets/cv/13-15_int_g.gif" height="425" width="580" alt="">
-            </div>
-          </Transition>
-        </li>
 
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2012&nbsp;&mdash; 2013&nbsp;/ Unico Design</div>
-
-            <button :class="buttonClassNames(5)" type="button" @click="toggleSection(5)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[5]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Adobe, Softimage XSI, Redmine
-              </div>
+              <div :class="$style.divider" />
+              <div :class="$style.box__head">2012&nbsp;&mdash; 2013&nbsp;/ Unico Design</div>
 
               <p :class="$style.box__text">
                 Веб-разработка
@@ -486,30 +370,12 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__image" src="/assets/cv/12-13_RJD_g.gif" height="543" width="580" alt="">
-            </div>
-          </Transition>
-        </li>
-
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2009&nbsp;&mdash; 2012&nbsp;/ Vegas</div>
-
-            <button :class="buttonClassNames(6)" type="button" @click="toggleSection(6)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[6]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Adobe
-              </div>
+              <div :class="$style.divider" />
+              <div :class="$style.box__head">2009&nbsp;&mdash; 2012&nbsp;/ Vegas</div>
 
               <p :class="$style.box__text">
                 Сайты, CRM, SEO
               </p>
-
 
               <p :class="$style.box__text">
                 Проектировали МИС с&nbsp;нуля до&nbsp;готового программного решения. Продукт обеспечивал полное
@@ -523,33 +389,9 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__image" src="/assets/cv/9-12_MIS_w.webp" height="503" width="580" alt="">
-
-              <!-- <div :class="$style.box__subtitle">
-                <b>
-                  Технический дизайн/иллюстрация
-                </b>
-              </div>
-
-              <img :class="$style.box__image" src="/assets/cv/9-12_Ill.png" height="318" width="580" alt=""> -->
-            </div>
-          </Transition>
-        </li>
-
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2007&nbsp;&mdash; 2008&nbsp;/ MTS Group&nbsp;&mdash; МультиКабельные Сети
-            </div>
-
-            <button :class="buttonClassNames(7)" type="button" @click="toggleSection(7)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[7]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Adobe
+              <div :class="$style.divider" />
+              <div :class="$style.box__head">
+                2007&nbsp;&mdash; 2008&nbsp;/ MTS Group&nbsp;&mdash; МультиКабельные Сети
               </div>
 
               <p :class="$style.box__text">
@@ -565,32 +407,10 @@ const toggleSection = (index: number) => {
 
               <img :class="$style.box__image" src="/assets/cv/7-8_DV.png" height="505" width="580" alt="">
 
-              <!-- <div :class="$style.box__subtitle">
-                <b>
-                  Иллюстрация
-                </b>
-              </div>
+              <div :class="$style.divider" />
 
-              <img :class="$style.box__image" src="/assets/cv/7-8_Ill.png" height="288" width="580" alt=""> -->
-            </div>
-          </Transition>
-        </li>
-
-        <li>
-          <div :class="$style.box__description">
-            <div :class="$style.box__title">2005&nbsp;&mdash; 2006&nbsp;/ Личный блог
-            </div>
-
-            <button :class="buttonClassNames(8)" type="button" @click="toggleSection(8)">
-              <Arrow :class="$style.box__icon" height="10" width="16" />
-            </button>
-          </div>
-
-          <Transition name="fade">
-            <div v-if="newArr[8]" :class="$style.box__content">
-              <div :class="$style.box__caption">
-                <b>Стек:</b>
-                Adobe, Macromedia Flash, Actionscript
+              <div :class="$style.box__head">
+                2005&nbsp;&mdash; 2006&nbsp;/ Личный блог
               </div>
 
               <div>
@@ -610,6 +430,7 @@ const toggleSection = (index: number) => {
               </div>
 
               <img :class="$style.box__icons" src="/assets/cv/5-6_icons.png" height="158" width="574" alt="">
+
             </div>
           </Transition>
         </li>
@@ -618,13 +439,13 @@ const toggleSection = (index: number) => {
           <div :class="$style.box__description">
             <div :class="$style.box__title">2001&nbsp;&mdash; 2022&nbsp;/ Училась&nbsp;/ Учила</div>
 
-            <button :class="buttonClassNames(9)" type="button" @click="toggleSection(9)">
+            <button :class="buttonClassNames(2)" type="button" @click="toggleSection(2)">
               <Arrow :class="$style.box__icon" height="10" width="16" />
             </button>
           </div>
 
           <Transition name="fade">
-            <div v-if="newArr[9]" :class="$style.box__content">
+            <div v-if="newArr[2]" :class="$style.box__content">
               <div>
                 <b>
                   Учила:
@@ -865,7 +686,21 @@ const toggleSection = (index: number) => {
   list-style-type: none;
 }
 
+.divider {
+  border-top: 2px solid var(--mild);
+  margin-bottom: 20px;
+
+  .root_dark & {
+    border-color: var(--medium);
+  }
+}
+
 .box {
+  &__head {
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
   &__title {
     display: flex;
     align-items: center;
@@ -923,11 +758,6 @@ const toggleSection = (index: number) => {
     }
   }
 
-  &__caption {
-    margin-bottom: 14px;
-    color: var(--medium)
-  }
-
   &__button {
     background-color: transparent;
     padding: 0;
@@ -960,7 +790,7 @@ const toggleSection = (index: number) => {
   }
 
   &__image {
-    margin-top: 20px;
+    margin: 20px 0 30px;
     display: block;
     width: 100%;
     height: auto;
@@ -971,6 +801,10 @@ const toggleSection = (index: number) => {
       .root_dark & {
         border: none;
       }
+    }
+
+    &_last {
+      margin-bottom: 0;
     }
   }
 
