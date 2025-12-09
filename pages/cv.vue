@@ -62,16 +62,12 @@ const isHovered = useElementHover(myHoverableElement)
 
     <ul :class="$style.list">
       <li :class="$style.list__item">
-        <b>
-          jul 6, 2024
-        </b>
+        jul 6, 2024
       </li>
 
       <li :class="$style.list__item">
         <NuxtLink to="/about" :class="[$style.list__link, $style.list__link_accent]">
-          <b>
-            #about
-          </b>
+          #about
         </NuxtLink>
       </li>
 
@@ -494,12 +490,8 @@ const isHovered = useElementHover(myHoverableElement)
 }
 
 .list {
+  @include ui-bull-list;
   margin-top: 20px;
-  margin-bottom: 15px;
-  color: var(--medium);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
 
   &__item {
     display: flex;
