@@ -421,12 +421,13 @@ const isHovered = useElementHover(myHoverableElement)
   align-items: center;
   border-top: 2px solid var(--mild);
 
+
   .root_dark & {
     border-color: var(--medium);
   }
 
   @media (max-width: 575px) {
-    padding-left: 60px;
+    padding-left: 0px;
   }
 
   &__hide {
@@ -658,6 +659,10 @@ const isHovered = useElementHover(myHoverableElement)
     .root_dark & {
       background-color: var(--semidark);
     }
+
+    @media (max-width: 575px) {
+      padding-left: 12px;
+    }
   }
 
   &__button {
@@ -670,6 +675,7 @@ const isHovered = useElementHover(myHoverableElement)
     width: 16px;
     font-weight: 500;
     margin-left: 8px;
+    flex-shrink: 0;
 
     &:after {
       position: absolute;
