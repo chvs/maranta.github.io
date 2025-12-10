@@ -114,7 +114,7 @@ const isHovered = useElementHover(myHoverableElement)
       <li :class="$style.actions__item"><span :class="$style.actions__bull" /></li>
 
       <li :class="$style.actions__item">
-        <a href="/CV_Design_Director_N_Maranta.pdf" download :class="$style.actions__link">
+        <a href="/CV_Design_Manager_N_Maranta.pdf" download :class="$style.actions__link">
           Скачать CV
           <span :class="$style.actions__hide">
             в .pdf
@@ -260,7 +260,7 @@ const isHovered = useElementHover(myHoverableElement)
 
             <div :class="[$style.divider, $style.divider_space]" />
 
-            <ul :class="[$style.box__list, $style.box__light]">
+            <ul :class="[$style.box__list, $style.box__list_last, $style.box__light]">
               <li>
                 Продукты c&nbsp;Acquisition 20+&nbsp;млн. регистраций
               </li>
@@ -355,7 +355,7 @@ const isHovered = useElementHover(myHoverableElement)
           </div>
 
           <Transition name="fade">
-            <div v-if="newArr[3]" :class="$style.box__content">
+            <div v-if="newArr[3]" :class="[$style.box__content, $style.box__content_inner]">
               <p><b>2013&nbsp;&mdash; 2015&nbsp;/ Intelsib</b></p>
               <p>Сайт компании</p>
               <img :class="$style.box__image" src="/assets/cv/13-15_int_g.gif" height="425" width="580" alt="">
@@ -365,7 +365,6 @@ const isHovered = useElementHover(myHoverableElement)
               <p><b>2012&nbsp;&mdash; 2013&nbsp;/ Unico Design</b></p>
               <p>Сайт для федеральной грузовой компании с&nbsp;CRM</p>
               <img :class="$style.box__image" src="/assets/cv/12-13_RJD_g.gif" height="580" width="543" alt="">
-
 
               <p><b>2009&nbsp;&mdash; 2012&nbsp;/ Vegas</b></p>
               <p>Медицинская информационная система для клиник.</p>
@@ -377,6 +376,83 @@ const isHovered = useElementHover(myHoverableElement)
 
               <p><b>2005&nbsp;&mdash; 2006&nbsp;/ Личный блог</b></p>
               <img :class="$style.box__image" src="/assets/cv/5-6_BLOG_g.gif" height="580" width="400" alt="">
+              <div :class="$style.divider" />
+            </div>
+          </Transition>
+        </li>
+
+        <li>
+          <div :class="$style.box__content">
+
+            <ul :class="[$style.box__list, $style.box__list_last]">
+              <li>
+                CRM, Медицинские информационные системы
+              </li>
+              <li>
+                Информационные порталы
+              </li>
+              <li>
+                Корпоративные сайты, интернет-магазины
+              </li>
+              <li>
+                Аналитика и&nbsp;поисковая оптимизация
+              </li>
+              <li>
+                Блог 🥲
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div :class="$style.box__description">
+            <div :class="$style.dates">
+              <span>2001</span>
+              <div :class="$style.dates__divider" />
+              <span>2022</span>
+            </div>
+            <div :class="$style.box__title">
+              <b>
+                Учила&nbsp;/ Училась
+              </b>
+            </div>
+
+            <button :class="buttonClassNames(4)" type="button" @click="toggleSection(4)">
+              <Arrow :class="$style.box__icon" height="10" width="16" />
+            </button>
+          </div>
+
+          <Transition name="fade">
+            <div v-if="newArr[4]" :class="$style.box__content">
+              <b>
+                Учила:
+              </b>
+              <ul :class="$style.box__list">
+                <li>
+                  2022&nbsp;&mdash; Приглашенный преподаватель ВШЭ. Дизайн цифровых продуктов.
+                </li>
+                <li>
+                  2006&nbsp;&mdash; 2007&nbsp;&mdash; Приглашенный преподаватель ИрГУПС. Менеджмент.
+                </li>
+              </ul>
+
+              <b>
+                Училась:
+              </b>
+              <ul :class="[$style.box__list, $style.box__list_last]">
+                <li>
+                  2006&nbsp;&mdash; 2010&nbsp;&mdash; Универ. Психология.
+                </li>
+                <li>
+                  2006&nbsp;&mdash; 2009&nbsp;&mdash; Аспирантура. Менеджмент.
+                </li>
+                <li>
+                  2001&nbsp;&mdash; 2006&nbsp;&mdash; Универ. Менеджмент и&nbsp;экономика.
+                </li>
+              </ul>
+
+              <img :class="[$style.box__image, $style.box__image_last]" src="/assets/cv/diploms.png" height="204"
+                width="580" alt="">
             </div>
           </Transition>
         </li>
@@ -462,6 +538,9 @@ const isHovered = useElementHover(myHoverableElement)
     font-size: 18px;
     cursor: pointer;
     white-space: nowrap;
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
 
     .root_dark & {
       color: var(--yellow);
@@ -640,6 +719,10 @@ const isHovered = useElementHover(myHoverableElement)
     >li {
 
       list-style: disc;
+    }
+
+    &_last {
+      margin-bottom: 0;
     }
   }
 
