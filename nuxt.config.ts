@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, minimum-scale=1' },
-        { property: 'og:site_name', content: 'Maranta' },
+        { property: 'og:site_name', content: 'mrnt.org' },
         { property: 'og:title', content: 'MARANTA - Дизайн-менеджер' },
         { property: 'og:url', content: 'http://www.mrnt.org/' },
         { property: 'og:description', content: 'Мы делаем здесь amazing customer service (c)' },
