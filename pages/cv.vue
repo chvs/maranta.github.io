@@ -91,7 +91,7 @@ const isHovered = useElementHover(myHoverableElement)
 
       <div :class="$style.header__info">
         <p>
-          <b>Наталья Маранта&nbsp;/ Дизаин-менеджер&nbsp;/ 15+&nbsp;лет опыта</b>
+          <b>Наталья Маранта&nbsp;/ Дизайн-менеджер&nbsp;/ 15+&nbsp;лет опыта</b>
           <br>
           Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;/ Data-driven design
           <br>
@@ -170,20 +170,33 @@ const isHovered = useElementHover(myHoverableElement)
 
         <li>
           <div :class="$style.box__content">
+            <b>
+              Основной вклад:
+            </b>
 
+            <p :class="$style.box__text">
+              Дизайн встроен в&nbsp;общее бизнес-планирование, все задачи направлены на&nbsp;выполнение конкретных
+              бизнес-целей.
+              <br>
+              Команда замотивирована на&nbsp;результат, каждый понимает свою роль в&nbsp;развитии продуктов.
+            </p>
+
+            <div :class="[$style.divider, $style.divider_space]" />
+
+            <b>Процессы:</b>
             <ul :class="$style.box__list">
               <li>
-                Собрана команда с нуля, заведены процессы
+                Собрана команда с&nbsp;нуля
               </li>
               <li>
-                Посчитана юнит-экономика, спроектирована продуктовая и
-                <NuxtLink to="/post/strategy" target="_blank">дизайн-стратегия</NuxtLink>
+                Посчитана юнит-экономика, спроектирована продуктовая и&nbsp;дизайн-стратегия
               </li>
               <li>
-                Введён процесс сквозного планирования / agile
+                Введён процесс сквозного планирования&nbsp;/ agile
               </li>
               <li>
-                Рекламный бюджет снижен на 50% план-факт за счёт замещения ПО и внедрения AI-инструментов
+                Рекламный бюджет снижен на&nbsp;50% план-факт за&nbsp;счёт замещения&nbsp;ПО и&nbsp;внедрения
+                AI-инструментов
               </li>
             </ul>
 
@@ -228,23 +241,36 @@ const isHovered = useElementHover(myHoverableElement)
 
         <li>
           <div :class="$style.box__content">
+            <b>
+              Основной вклад:
+            </b>
+
+            <p :class="$style.box__text">
+              Основой KPI и&nbsp;OKR стали бизнес-метрики (а&nbsp;не&nbsp;количество выполненной работы). Гипотезы
+              a/b-тестировались, изменения фиксировались в&nbsp;динамике и&nbsp;рассчитывалась доля от&nbsp;общего
+              роста.<br>
+              Ценность дизайна для бизнеса стала понятной, цели стали частью общей стратегии развития.<br>
+              Возросла мотивация команды и&nbsp;понимание своей роли в&nbsp;бизнесе.
+            </p>
+
+            <div :class="[$style.divider, $style.divider_space]" />
+
+            <b>
+              Процессы:
+            </b>
 
             <ul :class="$style.box__list">
               <li>
-                Введён
-                <NuxtLink to="/post/product-design" target="_blank">продуктовый подход</NuxtLink>
-                (дизайн на&nbsp;основе данных)
+                Введён продуктовый подход (дизайн на&nbsp;основе данных)
               </li>
               <li>
-                <NuxtLink to="/post/interview" target="_blank">Донабор команды</NuxtLink>
-                и&nbsp;распределение по&nbsp;направлениям (продуктовый, коммуникационный дизайн)
+                Донабор команды и&nbsp;распределение по&nbsp;направлениям (продуктовый, коммуникационный дизайн)
               </li>
               <li>
-                Введена
-                <NuxtLink to="/post/matrix" target="_blank">матрица компетенций</NuxtLink>
+                Введена матрица компетенций и&nbsp;процесс обучения
               </li>
               <li>
-                Введён процесс обучения
+                Налажена коммуникация между вертикалями
               </li>
               <li>
                 Достигнут рост MAU от&nbsp;квартала к&nbsp;кварталу до&nbsp;15%
@@ -306,16 +332,28 @@ const isHovered = useElementHover(myHoverableElement)
 
         <li>
           <div :class="$style.box__content">
+            <b>
+              Основной вклад:
+            </b>
+
+            <p :class="$style.box__text">
+              Налаживание коммуникации между менеджментом и&nbsp;командой: отстроена внутренняя система обратной связи
+              по&nbsp;возникающим проблемам. В&nbsp;результате план-факт выполненых задач каждый отчётный период были
+              с&nbsp;минимальными расхождениями.
+            </p>
+
+            <div :class="[$style.divider, $style.divider_space]" />
+
+            <b>
+              Процессы:
+            </b>
 
             <ul :class="$style.box__list">
               <li>
-                Уход от&nbsp;аутсорса&nbsp;/
-                <NuxtLink to="/post/interview" target="_blank">набор команды</NuxtLink>
+                Уход от&nbsp;аутсорса&nbsp;/ набор команды
               </li>
               <li>
-                Запуск дизайн-процессов:
-                <NuxtLink to="/post/planning" target="_blank">планирование</NuxtLink>,
-                <NuxtLink to="/post/communication" target="_blank">коммуникация</NuxtLink>, обучение, дизайн-ревью
+                Запуск дизайн-процессов: планирование, коммуникация, обучение, дизайн-ревью
                 и&nbsp;т.п.
               </li>
               <li>
@@ -597,7 +635,7 @@ const isHovered = useElementHover(myHoverableElement)
 
 .header {
   display: flex;
-  align-items: start;
+  align-items: center;
   position: relative;
   padding: 6px 0 22px 20px;
 
