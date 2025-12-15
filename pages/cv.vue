@@ -816,6 +816,7 @@ const isHovered = useElementHover(myHoverableElement)
     @media (max-width: 575px) {
       padding-left: 22px;
       margin: 0 -20px;
+      border-radius: 0;
     }
   }
 
