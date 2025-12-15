@@ -90,14 +90,23 @@ const isHovered = useElementHover(myHoverableElement)
       </Transition>
 
       <div :class="$style.header__info">
-        <p>
+
+        <p :class="$style.header__title">
           <b>Наталья Маранта&nbsp;/ Дизайн-менеджер&nbsp;/ 15+&nbsp;лет опыта</b>
-          <br>
+        </p>
+
+        <p :class="$style.header__caption">
           Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;/ Data-driven design
           <br>
           <b>Стек:</b> Jira, Confluence, Figma, ЯМ, GA...
         </p>
       </div>
+
+      <p :class="$style.header__caption_mobile">
+        Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;/ Data-driven design
+        <br>
+        <b>Стек:</b> Jira, Confluence, Figma, ЯМ, GA...
+      </p>
     </div>
 
     <ul :class="$style.actions">
@@ -542,6 +551,7 @@ const isHovered = useElementHover(myHoverableElement)
 
   @media (max-width: 575px) {
     padding-left: 0px;
+    padding-right: 5px;
   }
 
   &__hide {
@@ -639,8 +649,30 @@ const isHovered = useElementHover(myHoverableElement)
   position: relative;
   padding: 6px 0 22px 20px;
 
+  &__info {
+    @media (max-width: 575px) {
+      width: calc(100% - 60px);
+    }
+  }
+
+  &__caption {
+    @media (max-width: 575px) {
+      display: none;
+    }
+  }
+
+  &__caption_mobile {
+    margin-top: 10px;
+
+    @media (min-width: 576px) {
+      display: none;
+    }
+  }
+
   @media (max-width: 575px) {
     padding-left: 0;
+    flex-wrap: wrap;
+    align-items: start;
   }
 
   &__avatar {
@@ -732,7 +764,7 @@ const isHovered = useElementHover(myHoverableElement)
     margin-right: auto;
 
     @media (max-width: 575px) {
-      padding-left: 20px;
+      padding-left: 12px;
     }
   }
 
@@ -782,7 +814,8 @@ const isHovered = useElementHover(myHoverableElement)
     }
 
     @media (max-width: 575px) {
-      padding-left: 12px;
+      padding-left: 22px;
+      margin: 0 -20px;
     }
   }
 
