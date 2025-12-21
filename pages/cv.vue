@@ -61,7 +61,7 @@ const isHovered = useElementHover(myHoverableElement)
 
     <ul :class="$style.list">
       <li :class="$style.list__item">
-        jul 6, 2024
+        июл 6, 2024
       </li>
 
       <li :class="$style.list__item">
@@ -508,7 +508,7 @@ const isHovered = useElementHover(myHoverableElement)
 
   <footer :class="footerClassNames">
     <NuxtLink to="/">
-      Go home
+      Домой
     </NuxtLink>
 
     <ScrollTopButton />

@@ -85,7 +85,7 @@ const tagDisplayNames = {
 
   <footer :class="footerClassNames">
     <NuxtLink to="/">
-      Go home
+      Домой
     </NuxtLink>
 
     <ScrollTopButton />

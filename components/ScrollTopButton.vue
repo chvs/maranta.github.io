@@ -20,7 +20,7 @@ const isVisible = computed(() => Number(y.value) > 200);
 
 <template>
   <button v-show="isVisible" :class="rootClassNames" aria-label="Вверх" @click="scrollToTop">
-    Up
+    Вверх
   </button>
 </template>
 

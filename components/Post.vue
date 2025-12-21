@@ -75,7 +75,7 @@ const tagDisplayNames = {
     <div v-else :class="$style.content" v-html="data.text" />
 
     <div v-if="data.readMore" :class="$style.link">
-      <NuxtLink :to="postLink">read more...</NuxtLink>
+      <NuxtLink :to="postLink">читать далее...</NuxtLink>
     </div>
   </div>
 </template>

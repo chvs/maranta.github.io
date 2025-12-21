@@ -50,14 +50,14 @@ definePageMeta({
       </p>
 
       <NuxtLink to="/" :class="linkClassNames">
-        Go home
+        Домой
       </NuxtLink>
     </div>
   </div>
 
   <footer v-if="filteredPosts.length" :class="footerClassNames">
     <NuxtLink to="/">
-      Go home
+      Домой
     </NuxtLink>
 
     <ScrollTopButton />

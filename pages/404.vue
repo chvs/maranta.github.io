@@ -22,7 +22,7 @@ useSeoMeta({
     </div>
 
     <NuxtLink to="/">
-      Go home
+      Домой
     </NuxtLink>
   </div>
 </template>
