@@ -11,16 +11,14 @@ useSeoMeta({
 <template>
   <Profile is-error-page />
 
-  <Nav />
-
   <div :class="$style.text">
     # 404
   </div>
 
   <div :class="$style.content">
     <div :class="$style.icons">
-      <IconTop :class="$style.top"/>
-      <IconBottom :class="$style.bottom"/>
+      <IconTop :class="$style.top" />
+      <IconBottom :class="$style.bottom" />
     </div>
 
     <NuxtLink to="/">
@@ -58,12 +56,15 @@ useSeoMeta({
   0% {
     opacity: 1;
   }
+
   25% {
     opacity: 1;
   }
+
   75% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }

@@ -41,21 +41,15 @@ definePageMeta({
 <template>
   <div :class="$style.root">
     <Profile />
-    <Nav />
-    <Feed
-      v-if="filteredPosts.length"
-      :posts="filteredPosts"
-    />
 
-    <div v-else >
+    <Feed v-if="filteredPosts.length" :posts="filteredPosts" />
+
+    <div v-else>
       <p :class="$style.text">
         Coming soon
       </p>
 
-      <NuxtLink
-        to="/"
-        :class="linkClassNames"
-      >
+      <NuxtLink to="/" :class="linkClassNames">
         Go home
       </NuxtLink>
     </div>

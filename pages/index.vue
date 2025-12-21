@@ -15,7 +15,6 @@ const footerClassNames = computed(() => ({
 <template>
   <div :class="$style.root">
     <Profile />
-    <Nav />
 
     <Feed :posts="POSTS" />
   </div>

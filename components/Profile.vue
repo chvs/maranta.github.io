@@ -3,6 +3,7 @@ import Logo from '~/assets/images/logo.svg?component';
 import LogoDark from '~/assets/images/logo_dark.svg?component';
 import Logo404 from '~/assets/images/logo_404.svg?component';
 import Logo404Dark from '~/assets/images/logo_404_dark.svg?component';
+import TAGS from '~/constants/tags';
 
 
 const props = defineProps({
@@ -20,6 +21,19 @@ const rootClassNames = computed(() => ({
   [style.root]: true,
   [style.root_dark]: isThemeDark.value,
 }));
+
+const route = useRoute();
+
+const linkClassNames = ((item) => ({
+  [style.link]: true,
+  [style.link_active]: item === 'about' && route.name === 'cv',
+}));
+
+const tagDisplayNames = {
+  'work': 'статьи',
+  'photo': 'фото',
+  'about': 'эбаут'
+};
 </script>
 
 <template>
@@ -40,82 +54,19 @@ const rootClassNames = computed(() => ({
           MARANTA
         </h1>
 
-        <p v-if="isErrorPage">
-          where am I?
-        </p>
-
-        <a v-else :class="$style.caption" href="https://t.me/n_maranta" target="_blank" rel=”noopener”
-          aria-label="Перейти в телеграм канал">
-          @n_maranta
-        </a>
-
-        <!-- <ul v-else :class="socialsClass">
+        <ul :class="$style.list">
           <li>
-            <a
-              :class="$style.link"
-              href="https://t.me/n_maranta"
-              target="_blank"
-              rel=”noopener”
-            >
-              <TelegramIcon />
-            </a>
+            <NuxtLink to="/" exact :class="$style.link" :activeClass="$style.link_active">
+              всё
+            </NuxtLink>
           </li>
 
-          <li>
-            <a
-              :class="$style.link"
-              href="https://www.linkedin.com/in/nmaranta"
-              target="_blank"
-              rel=”noopener”
-            >
-              <LinkedinIcon />
-            </a>
+          <li v-for="item in TAGS" :key="item">
+            <NuxtLink :to="`/${item}`" :class="linkClassNames(item)" :activeClass="$style.link_active">
+              {{ tagDisplayNames[item] }}
+            </NuxtLink>
           </li>
-
-          <li v-if="false">
-            <a
-              :class="$style.link"
-              href="hhttps://github.com/nmaranta"
-              target="_blank"
-              rel=”noopener”
-            >
-              <GithubIcon />
-            </a>
-          </li>
-
-          <li v-if="false">
-            <a
-              :class="$style.link"
-              href="https://mastodon.online/web/@maranta"
-              target="_blank"
-              rel=”noopener”
-            >
-              <MastodonIcon />
-            </a>
-          </li>
-
-          <li v-if="false">
-            <a
-              :class="$style.link"
-              href="https://odysee.com/@maranta:0"
-              target="_blank"
-              rel=”noopener”
-            >
-              <OdyseeIcon />
-            </a>
-          </li>
-
-          <li v-if="false">
-            <a
-              :class="$style.link"
-              href="https://app.subsocial.network/accounts/3sLnig8qvRdUSFnhYCVoeNTWpuc6Vs9EiUmyZ6pFrkvjwyrz"
-              target="_blank"
-              rel=”noopener”
-            >
-              <SubsocialIcon />
-            </a>
-          </li>
-        </ul> -->
+        </ul>
       </div>
     </div>
 
@@ -131,10 +82,15 @@ const rootClassNames = computed(() => ({
 
   &_dark {
     border-color: var(--medium);
-  }
 
-  .caption {
-    color: var(--medium);
+    .link {
+      color: #fff !important;
+
+      &_active,
+      &:hover {
+        color: var(--yellow) !important;
+      }
+    }
   }
 }
 
@@ -152,44 +108,28 @@ const rootClassNames = computed(() => ({
   font-weight: 500;
 }
 
-.socials {
-  list-style-type: none;
-  margin: 0;
+.list {
   display: flex;
-  align-items: center;
-  margin-top: 13px;
-
-  &_dark {
-    .link {
-      &:hover {
-        svg path {
-          fill: #fff;
-        }
-      }
-    }
-  }
-
-  li {
-    margin-right: 19px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
+  flex-wrap: wrap;
 }
 
-.link {
-  display: block;
 
-  svg {
-    fill: var(--medium);
-    display: block;
-  }
+.link {
+  display: flex;
+  margin-right: 4px;
+  color: var(--dark) !important;
 
   &:hover {
-    svg path {
-      fill: var(--dark);
-    }
+    text-decoration: none !important;
+    color: var(--blue) !important;
+  }
+
+  &_active {
+    color: var(--blue) !important;
+  }
+
+  &::before {
+    content: '#';
   }
 }
 </style>

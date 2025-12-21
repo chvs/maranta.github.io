@@ -49,12 +49,17 @@ const readingTime = computed(() => {
 
   return time ? `${time} ${declOfNum(time)}` : '';
 });
+
+const tagDisplayNames = {
+  'work': 'статьи',
+  'photo': 'фото',
+  'about': 'эбаут'
+};
 </script>
 
 <template>
   <div :class="$style.root">
     <Profile />
-    <Nav />
 
     <ul v-if="data.tags.length" :class="$style.list">
       <li v-if="data.date" :class="$style.list__item">
@@ -64,7 +69,7 @@ const readingTime = computed(() => {
       <li v-for="(item, index) in data.tags" :key="index" :class="$style.list__item">
 
         <NuxtLink :to="{ name: 'category', params: { category: item } }" :class="$style.list__link">
-          #{{ item }}
+          #{{ tagDisplayNames[item] }}
         </NuxtLink>
       </li>
 

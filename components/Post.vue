@@ -23,6 +23,12 @@ const readingTime = computed(() => {
 const isAnimated = props.data.image && props.data.image.includes('webp');
 
 const postLink = props.data.slug ? `post/${props.data.slug}` : `/${props.data.url}`;
+
+const tagDisplayNames = {
+  'work': 'статьи',
+  'photo': 'фото',
+  'about': 'эбаут'
+};
 </script>
 
 <template>
@@ -34,7 +40,7 @@ const postLink = props.data.slug ? `post/${props.data.slug}` : `/${props.data.ur
 
       <li v-for="(item, index) in data.tags" :key="index" :class="$style.list__item">
         <NuxtLink :to="item" :class="$style.list__link">
-          #{{ item }}
+          #{{ tagDisplayNames[item] }}
         </NuxtLink>
       </li>
 

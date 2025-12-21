@@ -28,7 +28,7 @@ const buttonClassNames = ((index: number) => ({
   [style.box__button_open]: newArr.value[index],
 }))
 
-const newArr = ref(Array(4).fill(false));
+const newArr = ref(Array(5).fill(false));
 
 const isOpen = computed({
   get: () => newArr.value.every(item => item === true),
@@ -58,7 +58,6 @@ const isHovered = useElementHover(myHoverableElement)
 <template>
   <div :class="rootClassNames">
     <Profile />
-    <Nav />
 
     <ul :class="$style.list">
       <li :class="$style.list__item">
@@ -67,7 +66,7 @@ const isHovered = useElementHover(myHoverableElement)
 
       <li :class="$style.list__item">
         <NuxtLink to="/about" :class="[$style.list__link, $style.list__link_accent]">
-          #about
+          #эбаут
         </NuxtLink>
       </li>
 
