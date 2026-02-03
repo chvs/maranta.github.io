@@ -53,6 +53,15 @@ const arrowClassNames = computed(() => ({
 
 const myHoverableElement = useTemplateRef<HTMLImageElement>('myHoverableElement')
 const isHovered = useElementHover(myHoverableElement)
+
+const isHeaderInfoVisible = ref(false);
+
+const toggleHeader = () => isHeaderInfoVisible.value = !isHeaderInfoVisible.value;
+
+const headerButtonClassNames = computed(() => ({
+  [style.header__button]: true,
+  [style.header__button_open]: isHeaderInfoVisible.value,
+}))
 </script>
 
 <template>
@@ -94,18 +103,186 @@ const isHovered = useElementHover(myHoverableElement)
           <b>Наталья Маранта&nbsp;/ Дизайн-менеджер&nbsp;/ 15+&nbsp;лет опыта</b>
         </p>
 
-        <p :class="$style.header__caption">
-          Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;/ Data-driven design
-          <br>
-          <b>Стек:</b> Jira, Confluence, Figma, ЯМ, GA...
-        </p>
+        <div :class="$style.header__caption">
+          Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;
+
+          <div>
+            <div :class="$style.header__box">
+              <b>
+                Буду полезна, если в&nbsp;направлении дизайна у&nbsp;вас:
+              </b>
+
+              <button :class="headerButtonClassNames" type="button" @click="toggleHeader">
+                <Arrow :class="$style.header__arrow" height="10" width="16" />
+              </button>
+            </div>
+
+            <Transition name="fade">
+              <div v-if="isHeaderInfoVisible">
+                <ul :class="$style.header__list">
+                  <li>
+                    сервисная команда и&nbsp;её&nbsp;необходимо распределить по&nbsp;продуктам, распланировать нагрузку
+                    под
+                    заявленные сроки реализации, завязать это на&nbsp;ОКР, определить KPI, чтобы работал,
+                    а&nbsp;не&nbsp;просто был.
+                  </li>
+
+                  <li>
+                    неэффективная матрица компетенций (или её&nbsp;нет), а&nbsp;нужно работающую под ваши бизнес-задачи
+                    и&nbsp;бьющуюся с&nbsp;вашим перфоманс-ревью, чтобы автоматизировать и&nbsp;сделать прозрачной
+                    систему
+                    грейдов
+                  </li>
+
+                  <li>
+                    нет или не&nbsp;работает система индивидуального развития сотрудников под бизнес-цели компании
+                  </li>
+
+                  <li>
+                    нет отлаженной системы коммуникации менеджмента&nbsp;&mdash; линейного персонала
+                    и&nbsp;кросс-функциональных команд
+                  </li>
+
+                  <li>
+                    не&nbsp;отстроена система сквозного планирования и&nbsp;загрузка персонала неоднородная&nbsp;&mdash;
+                    простои/переработки
+                  </li>
+
+                  <li>
+                    нет системы мотивации
+                  </li>
+
+                  <li>
+                    нет или плохо работающий онбординг сотрудников
+                  </li>
+
+                  <li>
+                    нет / не&nbsp;работает система менторства
+                  </li>
+
+                  <li>
+                    вы&nbsp;сомневаетесь в&nbsp;эффективности команды и&nbsp;не&nbsp;знаете как её&nbsp;определить
+                  </li>
+
+                  <li>
+                    уровень продуктовой культуры низкий и&nbsp;никто не&nbsp;отвечает за&nbsp;развитие компетенций
+                  </li>
+
+                  <li>
+                    нет человека, который сможет донести до&nbsp;руководства результаты работы команды для бизнеса,
+                    а&nbsp;для команды бизнес-цели компании
+                  </li>
+
+                  <li>
+                    команда ориентируется на&nbsp;визуальную оценку продуктов и&nbsp;не&nbsp;следит за&nbsp;своим
+                    влиянием
+                    на&nbsp;продуктовые метрики
+                  </li>
+
+                  <li>
+                    нет понимания за&nbsp;какими метриками следить и&nbsp;зачем
+                  </li>
+                </ul>
+
+                <p :class="$style.header__text">
+                  Если всё это в&nbsp;компании уже работает, то, возможно, ваш дизайн-менеджер не&nbsp;нуждается
+                  в&nbsp;замене :)
+                </p>
+              </div>
+            </Transition>
+          </div>
+        </div>
       </div>
 
-      <p :class="$style.header__caption_mobile">
-        Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;/ Data-driven design
-        <br>
-        <b>Стек:</b> Jira, Confluence, Figma, ЯМ, GA...
-      </p>
+      <div :class="$style.header__caption_mobile">
+        Product Design&nbsp;/ Brand&nbsp;/ People Management&nbsp;/ Process Design&nbsp;
+
+        <div>
+          <div :class="$style.header__box">
+            <b>
+              Буду полезна, если в&nbsp;направлении дизайна у&nbsp;вас:
+            </b>
+
+            <button :class="headerButtonClassNames" type="button" @click="toggleHeader">
+              <Arrow :class="$style.header__arrow" height="10" width="16" />
+            </button>
+          </div>
+
+          <Transition name="fade">
+            <div v-if="isHeaderInfoVisible">
+              <ul :class="$style.header__list">
+                <li>
+                  сервисная команда и&nbsp;её&nbsp;необходимо распределить по&nbsp;продуктам, распланировать нагрузку
+                  под
+                  заявленные сроки реализации, завязать это на&nbsp;ОКР, определить KPI, чтобы работал,
+                  а&nbsp;не&nbsp;просто был.
+                </li>
+
+                <li>
+                  неэффективная матрица компетенций (или её&nbsp;нет), а&nbsp;нужно работающую под ваши бизнес-задачи
+                  и&nbsp;бьющуюся с&nbsp;вашим перфоманс-ревью, чтобы автоматизировать и&nbsp;сделать прозрачной
+                  систему
+                  грейдов
+                </li>
+
+                <li>
+                  нет или не&nbsp;работает система индивидуального развития сотрудников под бизнес-цели компании
+                </li>
+
+                <li>
+                  нет отлаженной системы коммуникации менеджмента&nbsp;&mdash; линейного персонала
+                  и&nbsp;кросс-функциональных команд
+                </li>
+
+                <li>
+                  не&nbsp;отстроена система сквозного планирования и&nbsp;загрузка персонала неоднородная&nbsp;&mdash;
+                  простои/переработки
+                </li>
+
+                <li>
+                  нет системы мотивации
+                </li>
+
+                <li>
+                  нет или плохо работающий онбординг сотрудников
+                </li>
+
+                <li>
+                  нет / не&nbsp;работает система менторства
+                </li>
+
+                <li>
+                  вы&nbsp;сомневаетесь в&nbsp;эффективности команды и&nbsp;не&nbsp;знаете как её&nbsp;определить
+                </li>
+
+                <li>
+                  уровень продуктовой культуры низкий и&nbsp;никто не&nbsp;отвечает за&nbsp;развитие компетенций
+                </li>
+
+                <li>
+                  нет человека, который сможет донести до&nbsp;руководства результаты работы команды для бизнеса,
+                  а&nbsp;для команды бизнес-цели компании
+                </li>
+
+                <li>
+                  команда ориентируется на&nbsp;визуальную оценку продуктов и&nbsp;не&nbsp;следит за&nbsp;своим
+                  влиянием
+                  на&nbsp;продуктовые метрики
+                </li>
+
+                <li>
+                  нет понимания за&nbsp;какими метриками следить и&nbsp;зачем
+                </li>
+              </ul>
+
+              <p :class="$style.header__text">
+                Если всё это в&nbsp;компании уже работает, то, возможно, ваш дизайн-менеджер не&nbsp;нуждается
+                в&nbsp;замене :)
+              </p>
+            </div>
+          </Transition>
+        </div>
+      </div>
     </div>
 
     <ul :class="$style.actions">
@@ -543,7 +720,6 @@ const isHovered = useElementHover(myHoverableElement)
   align-items: center;
   border-top: 2px solid var(--mild);
 
-
   .root_dark & {
     border-color: var(--medium);
   }
@@ -644,11 +820,13 @@ const isHovered = useElementHover(myHoverableElement)
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: start;
   position: relative;
-  padding: 6px 0 22px 20px;
+  padding: 6px 0 8px 20px;
 
   &__info {
+    width: 100%;
+
     @media (max-width: 575px) {
       width: calc(100% - 60px);
     }
@@ -680,7 +858,7 @@ const isHovered = useElementHover(myHoverableElement)
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    margin-right: 20px;
+    margin: 6px 20px 0 0;
 
     @media (max-width: 575px) {
       height: 50px;
@@ -734,6 +912,83 @@ const isHovered = useElementHover(myHoverableElement)
       display: none;
     }
   }
+
+  &__list {
+    margin-bottom: 20px;
+    padding-left: 19px;
+
+    >li {
+      list-style: disc;
+    }
+
+    &_last {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    height: 12px;
+    width: 16px;
+    font-weight: 500;
+    margin-left: 8px;
+    flex-shrink: 0;
+
+    &:after {
+      position: absolute;
+      content: "";
+      z-index: 1;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+
+    >svg {
+      transition: .123s transform linear;
+      transform: rotate(-90deg);
+    }
+
+    &_open>svg {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__arrow {
+    fill: var(--dark);
+    height: 100%;
+    width: 100%;
+
+    .root_dark & {
+      fill: var(--light);
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid var(--mild);
+    padding: 12px 5px 6px 0;
+    margin-top: 12px;
+    position: relative;
+
+    .root_dark & {
+      border-color: var(--medium);
+    }
+
+    @media (min-width: 576px) {
+      padding-right: 25px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 14px;
+  }
 }
 
 .feed {
@@ -786,7 +1041,6 @@ const isHovered = useElementHover(myHoverableElement)
     padding-left: 19px;
 
     >li {
-
       list-style: disc;
     }
 
