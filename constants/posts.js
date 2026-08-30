@@ -3417,8 +3417,6 @@ const createPosts = [
     date: 'июл 6, 2024',
     readMore: false,
     redStroke: true,
-    readMore: true,
-    url: 'cv',
   },
 ];
 
